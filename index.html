@@ -12,6 +12,7 @@
 
   <title>SiVMOR Diwali Gift</title>
 
+
   <style>
 
     * {
@@ -19,26 +20,35 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+
     html,
     body {
       margin: 0;
       padding: 0;
       width: 100%;
       min-height: 100%;
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       background:
         radial-gradient(
           circle at top,
           #fff8df 0%,
           #fff1c4 35%,
-          #fff 75%
+          #ffffff 75%
         );
+
       color: #222;
     }
+
 
     body {
       overflow-x: hidden;
     }
+
 
     .page {
       width: 100%;
@@ -54,9 +64,10 @@
 
     .banner-wrapper {
       width: 100%;
-      background: #fff;
+      background: #ffffff;
       overflow: hidden;
     }
+
 
     .banner-img {
       display: block;
@@ -66,13 +77,19 @@
       object-fit: cover;
     }
 
+
     .fallback-banner {
       display: none;
+
       width: 100%;
       min-height: 190px;
+
       padding: 25px 15px;
+
       text-align: center;
-      color: white;
+
+      color: #ffffff;
+
       background:
         radial-gradient(
           circle at center,
@@ -82,6 +99,7 @@
         );
     }
 
+
     .fallback-banner .logo {
       font-size: 28px;
       font-weight: 900;
@@ -89,11 +107,13 @@
       margin-bottom: 12px;
     }
 
+
     .fallback-banner .big {
       font-size: 25px;
       font-weight: 900;
       line-height: 1.15;
     }
+
 
     .fallback-banner .small {
       margin-top: 12px;
@@ -111,17 +131,25 @@
       padding: 18px 18px 8px;
     }
 
+
     .intro h1 {
       margin: 0 0 8px;
+
       font-size: 26px;
+
       font-weight: 900;
+
       color: #b30000;
     }
 
+
     .intro p {
       margin: 5px 0;
+
       font-size: 15px;
+
       line-height: 1.5;
+
       color: #444;
     }
 
@@ -132,168 +160,286 @@
 
     .form-card {
       margin: 15px;
+
       padding: 20px;
-      background: rgba(255,255,255,0.97);
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.97
+        );
+
       border-radius: 22px;
+
       box-shadow:
-        0 8px 35px rgba(0,0,0,0.12),
-        0 2px 8px rgba(0,0,0,0.06);
+        0 8px 35px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.06);
     }
+
 
     .field {
       margin-bottom: 17px;
     }
 
+
     .field label {
       display: block;
+
       margin-bottom: 7px;
+
       font-size: 14px;
+
       font-weight: 800;
+
       color: #333;
     }
+
 
     .required {
       color: #d00000;
     }
 
+
     .field input,
     .field textarea {
+
       width: 100%;
-      border: 1px solid #d6d6d6;
+
+      border:
+        1px solid #d6d6d6;
+
       border-radius: 13px;
+
       padding: 14px 13px;
+
       font-size: 16px;
+
       outline: none;
-      background: #fff;
+
+      background: #ffffff;
+
       transition:
         border-color 0.2s,
         box-shadow 0.2s;
     }
 
+
     .field input:focus,
     .field textarea:focus {
+
       border-color: #e49b00;
+
       box-shadow:
-        0 0 0 3px rgba(228,155,0,0.12);
+        0 0 0 3px
+        rgba(
+          228,
+          155,
+          0,
+          0.12
+        );
     }
 
+
     .field textarea {
+
       min-height: 90px;
+
       resize: vertical;
     }
 
+
     .hint {
+
       margin-top: 5px;
+
       font-size: 12px;
+
       color: #777;
     }
 
 
     /* =====================================================
-       PHOTO
+       PHOTO SECTION
     ====================================================== */
 
     .photo-box {
-      border: 2px dashed #e0a100;
+
+      border:
+        2px dashed #e0a100;
+
       border-radius: 17px;
+
       padding: 15px;
+
       background: #fffaf0;
+
       text-align: center;
     }
 
+
     .photo-buttons {
+
       display: grid;
-      grid-template-columns: 1fr 1fr;
+
+      grid-template-columns:
+        1fr 1fr;
+
       gap: 10px;
+
       margin-top: 5px;
     }
 
+
     .photo-btn {
+
       border: 0;
+
       border-radius: 12px;
+
       padding: 13px 10px;
+
       font-size: 14px;
+
       font-weight: 800;
+
       cursor: pointer;
-      background: #fff;
-      border: 1px solid #e2b63e;
+
+      background: #ffffff;
+
+      border:
+        1px solid #e2b63e;
+
       color: #7b5100;
     }
 
+
     .photo-btn:active {
+
       transform: scale(0.98);
     }
 
+
     #fileInput,
     #cameraInput {
+
       display: none;
     }
 
+
     .preview-wrapper {
+
       display: none;
+
       margin-top: 14px;
+
       position: relative;
     }
 
+
     #photoPreview {
+
       width: 100%;
+
       max-height: 400px;
+
       object-fit: contain;
+
       border-radius: 14px;
-      background: #eee;
+
+      background: #eeeeee;
+
       display: block;
     }
 
+
     .remove-photo {
+
       margin-top: 9px;
+
       border: 0;
+
       border-radius: 10px;
+
       padding: 9px 14px;
+
       font-weight: 700;
-      color: #fff;
+
+      color: #ffffff;
+
       background: #d62828;
+
       cursor: pointer;
     }
 
 
     /* =====================================================
-       SUBMIT
+       SUBMIT BUTTON
     ====================================================== */
 
     .submit-btn {
+
       width: 100%;
+
       border: 0;
+
       border-radius: 15px;
+
       padding: 16px;
+
       margin-top: 8px;
+
       font-size: 18px;
+
       font-weight: 900;
-      color: #fff;
+
+      color: #ffffff;
+
       cursor: pointer;
+
       background:
         linear-gradient(
           135deg,
           #ff9d00,
           #e01b00
         );
+
       box-shadow:
-        0 7px 18px rgba(224,27,0,0.25);
+        0 7px 18px
+        rgba(
+          224,
+          27,
+          0,
+          0.25
+        );
     }
 
+
     .submit-btn:active {
+
       transform: scale(0.985);
     }
 
+
     .submit-btn:disabled {
+
       opacity: 0.8;
+
       cursor: default;
     }
 
+
     .privacy-note {
+
       text-align: center;
+
       margin-top: 12px;
+
       color: #777;
+
       font-size: 11px;
+
       line-height: 1.4;
     }
 
@@ -303,118 +449,210 @@
     ====================================================== */
 
     #appsScriptFrame {
+
       display: none;
+
       width: 0;
+
       height: 0;
+
       border: 0;
+
       position: absolute;
+
       left: -99999px;
     }
 
 
     /* =====================================================
-       CELEBRATION
+       CELEBRATION SCREEN
     ====================================================== */
 
     #celebration {
+
       display: none;
+
       position: fixed;
+
       inset: 0;
+
       z-index: 99999;
+
       overflow: hidden;
 
       background:
         radial-gradient(
           circle at center,
-          rgba(255,180,0,0.98) 0%,
-          rgba(160,0,0,0.98) 38%,
-          rgba(20,0,0,1) 100%
+          rgba(
+            255,
+            180,
+            0,
+            0.98
+          ) 0%,
+
+          rgba(
+            160,
+            0,
+            0,
+            0.98
+          ) 38%,
+
+          rgba(
+            20,
+            0,
+            0,
+            1
+          ) 100%
         );
     }
 
+
     #fireworksCanvas {
+
       position: absolute;
+
       inset: 0;
+
       width: 100%;
+
       height: 100%;
     }
 
+
     .celebration-content {
+
       position: absolute;
+
       z-index: 10;
+
       inset: 0;
 
       display: flex;
+
       flex-direction: column;
+
       justify-content: center;
+
       align-items: center;
 
       text-align: center;
+
       padding: 25px;
 
       pointer-events: none;
     }
 
+
     .celebration-diya {
+
       font-size: 70px;
 
       filter:
-        drop-shadow(0 0 12px #fff)
-        drop-shadow(0 0 30px #ff9d00);
+        drop-shadow(
+          0 0 12px #ffffff
+        )
+        drop-shadow(
+          0 0 30px #ff9d00
+        );
 
       animation:
-        diyaPulse 1s infinite alternate;
+        diyaPulse
+        1s
+        infinite
+        alternate;
     }
 
+
     .celebration-title {
+
       margin-top: 10px;
-      font-size: clamp(32px, 9vw, 62px);
+
+      font-size:
+        clamp(
+          32px,
+          9vw,
+          62px
+        );
+
       font-weight: 1000;
+
       line-height: 1.05;
-      color: #fff;
+
+      color: #ffffff;
 
       text-shadow:
-        0 0 8px #fff,
+        0 0 8px #ffffff,
         0 0 20px #ffd000,
         0 0 40px #ff6500;
 
       animation:
-        titlePop 0.8s ease-out;
+        titlePop
+        0.8s
+        ease-out;
     }
 
+
     .celebration-subtitle {
+
       margin-top: 15px;
-      font-size: clamp(18px, 5vw, 28px);
+
+      font-size:
+        clamp(
+          18px,
+          5vw,
+          28px
+        );
+
       font-weight: 900;
-      color: #fff;
+
+      color: #ffffff;
+
       text-shadow:
         0 0 15px #ffcc00;
     }
 
+
     .celebration-message {
+
       margin-top: 10px;
+
       max-width: 500px;
+
       font-size: 15px;
+
       line-height: 1.5;
+
       color: #fff8dc;
     }
 
+
+    /* =====================================================
+       INSTAGRAM BUTTON
+       ONLY AFTER SUCCESSFUL SUBMISSION
+    ====================================================== */
+
     .celebration-follow {
+
       pointer-events: auto;
 
       margin-top: 24px;
 
       display: inline-flex;
+
       align-items: center;
+
+      justify-content: center;
+
       gap: 9px;
 
-      padding: 13px 22px;
+      padding:
+        13px 22px;
 
       border-radius: 15px;
 
       text-decoration: none;
 
-      color: #fff;
+      color: #ffffff;
 
       font-weight: 900;
 
@@ -427,71 +665,77 @@
         );
 
       box-shadow:
-        0 0 20px rgba(255,255,255,0.25),
-        0 7px 25px rgba(0,0,0,0.3);
+        0 0 20px
+        rgba(
+          255,
+          255,
+          255,
+          0.25
+        ),
+
+        0 7px 25px
+        rgba(
+          0,
+          0,
+          0,
+          0.3
+        );
     }
 
-    .celebration-close {
-      pointer-events: auto;
-
-      margin-top: 14px;
-
-      border: 1px solid
-        rgba(255,255,255,0.45);
-
-      background:
-        rgba(0,0,0,0.22);
-
-      color: #fff;
-
-      border-radius: 12px;
-
-      padding: 9px 18px;
-
-      font-weight: 700;
-
-      cursor: pointer;
-    }
 
     .instagram-icon {
+
       width: 22px;
+
       height: 22px;
+
       fill: currentColor;
     }
 
 
     /* =====================================================
-       ANIMATIONS
+       FIREWORK ANIMATIONS
     ====================================================== */
 
     @keyframes diyaPulse {
 
       from {
-        transform: scale(0.92);
+
+        transform:
+          scale(0.92);
       }
 
       to {
-        transform: scale(1.08);
-      }
 
+        transform:
+          scale(1.08);
+      }
     }
+
 
     @keyframes titlePop {
 
       0% {
+
         opacity: 0;
-        transform: scale(0.5);
+
+        transform:
+          scale(0.5);
       }
 
       70% {
-        transform: scale(1.08);
+
+        transform:
+          scale(1.08);
       }
 
       100% {
-        opacity: 1;
-        transform: scale(1);
-      }
 
+        opacity: 1;
+
+        transform:
+          scale(1);
+      }
     }
 
 
@@ -500,21 +744,29 @@
     ====================================================== */
 
     .cracker {
+
       position: absolute;
+
       z-index: 5;
 
       font-size: 28px;
 
       animation:
-        crackerFly 2.5s linear forwards;
+        crackerFly
+        2.5s
+        linear
+        forwards;
 
       pointer-events: none;
     }
 
+
     @keyframes crackerFly {
 
       0% {
+
         opacity: 0;
+
         transform:
           translateY(80px)
           scale(0.3)
@@ -522,10 +774,12 @@
       }
 
       15% {
+
         opacity: 1;
       }
 
       100% {
+
         opacity: 0;
 
         transform:
@@ -533,7 +787,6 @@
           scale(1.5)
           rotate(720deg);
       }
-
     }
 
 
@@ -544,22 +797,30 @@
     @media (max-width: 480px) {
 
       .form-card {
+
         margin: 12px;
+
         padding: 16px;
       }
 
+
       .intro h1 {
+
         font-size: 23px;
       }
 
+
       .photo-buttons {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
       }
+
 
       .celebration-diya {
+
         font-size: 60px;
       }
-
     }
 
   </style>
@@ -586,6 +847,7 @@
         alt="SiVMOR Diwali Gift"
       >
 
+
       <div
         id="fallbackBanner"
         class="fallback-banner"
@@ -595,9 +857,11 @@
           SiVMOR GADGETS
         </div>
 
+
         <div class="big">
           कुल ₹1 करोड़ तक के उपहार
         </div>
+
 
         <div class="small">
           Assured Gifts + Lucky Draw
@@ -618,9 +882,11 @@
         SiVMOR DIWALI GIFT
       </h1>
 
+
       <p>
         🪔 Celebrate the Festival of Lights with SiVMOR!
       </p>
+
 
       <p>
         Spread joy, share happiness, & celebrate together
@@ -631,10 +897,11 @@
 
 
     <!-- ===================================================
-         FORM
+         FORM CARD
     ==================================================== -->
 
     <div class="form-card">
+
 
       <form
         id="customerForm"
@@ -642,14 +909,22 @@
       >
 
 
-        <!-- NAME -->
+        <!-- =================================================
+             NAME
+        ================================================== -->
 
         <div class="field">
 
           <label for="name">
+
             Name
-            <span class="required">*</span>
+
+            <span class="required">
+              *
+            </span>
+
           </label>
+
 
           <input
             id="name"
@@ -663,14 +938,22 @@
         </div>
 
 
-        <!-- MOBILE -->
+        <!-- =================================================
+             MOBILE
+        ================================================== -->
 
         <div class="field">
 
           <label for="mobile">
+
             Mobile No.
-            <span class="required">*</span>
+
+            <span class="required">
+              *
+            </span>
+
           </label>
+
 
           <input
             id="mobile"
@@ -683,65 +966,107 @@
             required
           >
 
+
           <div class="hint">
+
             Enter exactly 10 digits.
+
           </div>
 
         </div>
 
 
-        <!-- INVOICE -->
+        <!-- =================================================
+             INVOICE
+        ================================================== -->
 
         <div class="field">
 
           <label for="invoice">
+
             Invoice No.
-            <span class="required">*</span>
+
+            <span class="required">
+              *
+            </span>
+
           </label>
+
 
           <input
             id="invoice"
             name="invoice"
-            type="number"
-            min="1"
-            max="9999"
-            step="1"
-            inputmode="numeric"
-            placeholder="1 to 9999"
+            type="text"
+            inputmode="text"
+            maxlength="100"
+            placeholder="Enter invoice number"
+            autocomplete="off"
             required
           >
+
+
+          <div class="hint">
+
+            Numbers, alphabets and special characters are allowed.
+
+          </div>
 
         </div>
 
 
-        <!-- STORE -->
+        <!-- =================================================
+             MODEL NAME
+        ================================================== -->
 
         <div class="field">
 
-          <label for="storeName">
-            Store Name
-            <span class="required">*</span>
+          <label for="modelName">
+
+            Model Name
+
+            <span class="required">
+              *
+            </span>
+
           </label>
 
+
           <input
-            id="storeName"
-            name="storeName"
+            id="modelName"
+            name="modelName"
             type="text"
-            placeholder="Enter store name"
+            maxlength="200"
+            placeholder="Enter mobile model name"
+            autocomplete="off"
             required
           >
+
+
+          <div class="hint">
+
+            Example: iPhone 15, Samsung A55, Redmi Note 13 Pro
+
+          </div>
 
         </div>
 
 
-        <!-- IMEI -->
+        <!-- =================================================
+             IMEI / S.R NO
+        ================================================== -->
 
         <div class="field">
 
           <label for="imei">
+
             IMEI / S.R NO
-            <span class="required">*</span>
+
+            <span class="required">
+              *
+            </span>
+
           </label>
+
 
           <textarea
             id="imei"
@@ -753,21 +1078,34 @@
         </div>
 
 
-        <!-- PHOTO -->
+        <!-- =================================================
+             INVOICE PHOTO
+        ================================================== -->
 
         <div class="field">
 
           <label>
-            Photo
-            <span class="required">*</span>
+
+            Invoice Photo
+
+            <span class="required">
+              *
+            </span>
+
           </label>
 
 
           <div class="photo-box">
 
-            <div style="font-size:38px;">
+
+            <div
+              style="
+                font-size:38px;
+              "
+            >
               📷
             </div>
+
 
             <div
               style="
@@ -775,8 +1113,9 @@
                 margin-top:5px;
               "
             >
-              Upload Customer Photo
+              Upload Invoice Photo
             </div>
+
 
             <div
               style="
@@ -790,29 +1129,41 @@
             </div>
 
 
-            <div class="photo-buttons">
+            <div
+              class="photo-buttons"
+            >
+
+
+              <!-- CAMERA -->
 
               <button
                 type="button"
                 class="photo-btn"
                 id="cameraButton"
               >
+
                 📸 Open Camera
+
               </button>
 
+
+              <!-- GALLERY -->
 
               <button
                 type="button"
                 class="photo-btn"
                 id="galleryButton"
               >
+
                 🖼️ Gallery / File
+
               </button>
+
 
             </div>
 
 
-            <!-- CAMERA -->
+            <!-- CAMERA INPUT -->
 
             <input
               id="cameraInput"
@@ -822,7 +1173,7 @@
             >
 
 
-            <!-- GALLERY -->
+            <!-- GALLERY INPUT -->
 
             <input
               id="fileInput"
@@ -831,7 +1182,7 @@
             >
 
 
-            <!-- PREVIEW -->
+            <!-- PHOTO PREVIEW -->
 
             <div
               id="previewWrapper"
@@ -840,15 +1191,18 @@
 
               <img
                 id="photoPreview"
-                alt="Selected photo"
+                alt="Selected invoice photo"
               >
+
 
               <button
                 type="button"
                 id="removePhoto"
                 class="remove-photo"
               >
+
                 ❌ Remove Photo
+
               </button>
 
             </div>
@@ -858,20 +1212,26 @@
         </div>
 
 
-        <!-- SUBMIT -->
+        <!-- =================================================
+             SUBMIT
+        ================================================== -->
 
         <button
           id="submitBtn"
           type="submit"
           class="submit-btn"
         >
+
           🎁 Submit & Celebrate Diwali
+
         </button>
 
 
         <div class="privacy-note">
+
           Your submitted details will be securely recorded
           for the SiVMOR Diwali Gift campaign.
+
         </div>
 
 
@@ -881,11 +1241,9 @@
 
 
     <!-- ===================================================
-         IMPORTANT:
-         NO INSTAGRAM SECTION HERE.
+         NO INSTAGRAM SECTION HERE
 
-         Instagram is shown ONLY AFTER SUBMISSION
-         inside the celebration screen.
+         Instagram appears ONLY after submission.
     ==================================================== -->
 
 
@@ -903,35 +1261,50 @@
 
 
   <!-- =====================================================
-       CELEBRATION
+       CELEBRATION SCREEN
   ====================================================== -->
 
   <div id="celebration">
+
 
     <canvas
       id="fireworksCanvas"
     ></canvas>
 
 
-    <div class="celebration-content">
+    <div
+      class="celebration-content"
+    >
 
 
       <div class="celebration-diya">
+
         🪔
+
       </div>
 
 
-      <div class="celebration-title">
+      <div
+        class="celebration-title"
+      >
+
         Happy Diwali!
+
       </div>
 
 
-      <div class="celebration-subtitle">
+      <div
+        class="celebration-subtitle"
+      >
+
         SIVMOR ki taraf se
+
       </div>
 
 
-      <div class="celebration-message">
+      <div
+        class="celebration-message"
+      >
 
         ✨ Aapka response submit ho gaya hai! ✨
 
@@ -943,7 +1316,10 @@
       </div>
 
 
-      <!-- INSTAGRAM ONLY AFTER SUBMIT -->
+      <!-- =================================================
+           INSTAGRAM
+           ONLY BUTTON ON SUCCESS SCREEN
+      ================================================== -->
 
       <a
         class="celebration-follow"
@@ -952,6 +1328,7 @@
         rel="noopener noreferrer"
       >
 
+
         <svg
           class="instagram-icon"
           viewBox="0 0 24 24"
@@ -959,12 +1336,29 @@
         >
 
           <path
-            d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"
+            d="
+              M7.5 2h9
+              A5.5 5.5 0 0 1 22 7.5v9
+              a5.5 5.5 0 0 1-5.5 5.5h-9
+              A5.5 5.5 0 0 1 2 16.5v-9
+              A5.5 5.5 0 0 1 7.5 2zm0 2
+              A3.5 3.5 0 0 0 4 7.5v9
+              A3.5 3.5 0 0 0 7.5 20h9
+              a3.5 3.5 0 0 0 3.5-3.5v-9
+              A3.5 3.5 0 0 0 16.5 4h-9z
+            "
           />
 
+
           <path
-            d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"
+            d="
+              M12 7a5 5 0 1 0 0 10
+              5 5 0 0 0 0-10zm0 2
+              a3 3 0 1 1 0 6
+              3 3 0 0 1 0-6z
+            "
           />
+
 
           <circle
             cx="17.5"
@@ -974,17 +1368,16 @@
 
         </svg>
 
+
         Follow Us on Instagram
+
 
       </a>
 
 
-      <button
-        id="closeCelebration"
-        class="celebration-close"
-      >
-        Continue
-      </button>
+      <!--
+        NO CONTINUE BUTTON
+      -->
 
 
     </div>
@@ -992,11 +1385,15 @@
   </div>
 
 
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
   <script>
 
 
     /* =====================================================
-       CONFIGURATION
+       APPS SCRIPT URL
     ====================================================== */
 
     const APPS_SCRIPT_URL =
@@ -1008,56 +1405,99 @@
     ====================================================== */
 
     const FORM =
-      document.getElementById("customerForm");
+      document.getElementById(
+        "customerForm"
+      );
+
 
     const nameInput =
-      document.getElementById("name");
+      document.getElementById(
+        "name"
+      );
+
 
     const mobileInput =
-      document.getElementById("mobile");
+      document.getElementById(
+        "mobile"
+      );
+
 
     const invoiceInput =
-      document.getElementById("invoice");
+      document.getElementById(
+        "invoice"
+      );
 
-    const storeInput =
-      document.getElementById("storeName");
+
+    const modelInput =
+      document.getElementById(
+        "modelName"
+      );
+
 
     const imeiInput =
-      document.getElementById("imei");
+      document.getElementById(
+        "imei"
+      );
+
 
     const cameraInput =
-      document.getElementById("cameraInput");
+      document.getElementById(
+        "cameraInput"
+      );
+
 
     const fileInput =
-      document.getElementById("fileInput");
+      document.getElementById(
+        "fileInput"
+      );
+
 
     const cameraButton =
-      document.getElementById("cameraButton");
+      document.getElementById(
+        "cameraButton"
+      );
+
 
     const galleryButton =
-      document.getElementById("galleryButton");
+      document.getElementById(
+        "galleryButton"
+      );
+
 
     const photoPreview =
-      document.getElementById("photoPreview");
+      document.getElementById(
+        "photoPreview"
+      );
+
 
     const previewWrapper =
-      document.getElementById("previewWrapper");
+      document.getElementById(
+        "previewWrapper"
+      );
+
 
     const removePhoto =
-      document.getElementById("removePhoto");
+      document.getElementById(
+        "removePhoto"
+      );
+
 
     const submitBtn =
-      document.getElementById("submitBtn");
+      document.getElementById(
+        "submitBtn"
+      );
+
 
     const celebration =
-      document.getElementById("celebration");
-
-    const closeCelebration =
-      document.getElementById("closeCelebration");
+      document.getElementById(
+        "celebration"
+      );
 
 
     let selectedPhotoData = "";
+
     let selectedPhotoName = "";
+
     let submissionPending = false;
 
 
@@ -1066,25 +1506,34 @@
     ====================================================== */
 
     const bannerImage =
-      document.getElementById("bannerImage");
+      document.getElementById(
+        "bannerImage"
+      );
+
 
     const fallbackBanner =
-      document.getElementById("fallbackBanner");
+      document.getElementById(
+        "fallbackBanner"
+      );
+
 
     bannerImage.addEventListener(
       "error",
       function() {
 
-        bannerImage.style.display = "none";
+        bannerImage.style.display =
+          "none";
 
-        fallbackBanner.style.display = "block";
+
+        fallbackBanner.style.display =
+          "block";
 
       }
     );
 
 
     /* =====================================================
-       CAMERA / GALLERY
+       CAMERA
     ====================================================== */
 
     cameraButton.addEventListener(
@@ -1097,6 +1546,10 @@
     );
 
 
+    /* =====================================================
+       GALLERY
+    ====================================================== */
+
     galleryButton.addEventListener(
       "click",
       function() {
@@ -1106,6 +1559,10 @@
       }
     );
 
+
+    /* =====================================================
+       CAMERA CHANGE
+    ====================================================== */
 
     cameraInput.addEventListener(
       "change",
@@ -1125,6 +1582,10 @@
       }
     );
 
+
+    /* =====================================================
+       GALLERY CHANGE
+    ====================================================== */
 
     fileInput.addEventListener(
       "change",
@@ -1146,21 +1607,7 @@
 
 
     /* =====================================================
-       PHOTO COMPRESSION
-
-       IMPORTANT:
-
-       User can select a very large photo.
-
-       Browser automatically:
-       - reads photo
-       - rotates naturally where supported
-       - resizes large image
-       - converts to JPEG
-       - reduces quality
-       - keeps final upload manageable
-
-       No manual size checking by user.
+       IMAGE COMPRESSION
     ====================================================== */
 
     function compressImage(
@@ -1173,12 +1620,14 @@
       return new Promise(
         function(resolve, reject) {
 
+
           const reader =
             new FileReader();
 
 
           reader.onload =
             function(event) {
+
 
               const img =
                 new Image();
@@ -1187,15 +1636,17 @@
               img.onload =
                 function() {
 
+
                   let width =
                     img.naturalWidth;
+
 
                   let height =
                     img.naturalHeight;
 
 
                   /*
-                    Resize only when needed.
+                    Calculate resize scale.
                   */
 
                   const scale =
@@ -1211,6 +1662,7 @@
                       width * scale
                     );
 
+
                   height =
                     Math.round(
                       height * scale
@@ -1225,6 +1677,7 @@
 
                   canvas.width =
                     width;
+
 
                   canvas.height =
                     height;
@@ -1248,6 +1701,7 @@
                   canvas.toBlob(
                     function(blob) {
 
+
                       if (!blob) {
 
                         reject(
@@ -1257,10 +1711,14 @@
                         );
 
                         return;
+
                       }
 
 
-                      resolve(blob);
+                      resolve(
+                        blob
+                      );
+
 
                     },
                     "image/jpeg",
@@ -1300,7 +1758,9 @@
             };
 
 
-          reader.readAsDataURL(file);
+          reader.readAsDataURL(
+            file
+          );
 
         }
       );
@@ -1309,29 +1769,32 @@
 
 
     /* =====================================================
-       SMART PHOTO COMPRESSION
-
-       Target:
-       approximately <= 900 KB
-
-       If photo is still large, quality is reduced
-       automatically.
-
-       User does NOT need to do anything.
+       SMART COMPRESSION
     ====================================================== */
 
-    async function preparePhoto(file) {
+    async function preparePhoto(
+      file
+    ) {
 
-      let quality = 0.78;
+      let quality =
+        0.78;
 
-      let blob = null;
 
+      let blob =
+        null;
+
+
+      /*
+        Try progressively lower quality
+        until image is manageable.
+      */
 
       for (
         let attempt = 0;
         attempt < 6;
         attempt++
       ) {
+
 
         blob =
           await compressImage(
@@ -1343,7 +1806,8 @@
 
 
         if (
-          blob.size <= 900 * 1024
+          blob.size <=
+          900 * 1024
         ) {
 
           break;
@@ -1351,10 +1815,13 @@
         }
 
 
-        quality -= 0.08;
+        quality -=
+          0.08;
 
 
-        if (quality < 0.42) {
+        if (
+          quality < 0.42
+        ) {
 
           quality = 0.42;
 
@@ -1364,13 +1831,13 @@
 
 
       /*
-        If extremely large image is still large,
-        resize further.
+        Extra fallback for very large images.
       */
 
       if (
         blob &&
-        blob.size > 1200 * 1024
+        blob.size >
+        1200 * 1024
       ) {
 
         blob =
@@ -1393,7 +1860,10 @@
        PHOTO HANDLER
     ====================================================== */
 
-    async function handlePhoto(file) {
+    async function handlePhoto(
+      file
+    ) {
+
 
       if (!file) {
         return;
@@ -1402,7 +1872,9 @@
 
       if (
         !file.type ||
-        !file.type.startsWith("image/")
+        !file.type.startsWith(
+          "image/"
+        )
       ) {
 
         alert(
@@ -1416,32 +1888,37 @@
 
       try {
 
+
         /*
-          Show loading state.
+          Show preview/loading area.
         */
 
         previewWrapper.style.display =
           "block";
 
+
         photoPreview.removeAttribute(
           "src"
         );
 
+
         photoPreview.alt =
-          "Compressing photo...";
+          "Compressing invoice photo...";
 
 
         /*
-          Compress automatically.
+          Compress photo.
         */
 
         const compressedBlob =
-          await preparePhoto(file);
+          await preparePhoto(
+            file
+          );
 
 
         /*
-          Convert compressed blob
-          to Base64 for Apps Script.
+          Convert compressed image
+          to Base64.
         */
 
         const reader =
@@ -1451,12 +1928,13 @@
         reader.onload =
           function(event) {
 
+
             selectedPhotoData =
               event.target.result;
 
 
             selectedPhotoName =
-              "customer-photo.jpg";
+              "invoice-photo.jpg";
 
 
             photoPreview.src =
@@ -1464,7 +1942,7 @@
 
 
             photoPreview.alt =
-              "Selected customer photo";
+              "Selected invoice photo";
 
 
             previewWrapper.style.display =
@@ -1476,12 +1954,19 @@
         reader.onerror =
           function() {
 
+
             alert(
               "Photo read nahi ho paayi. Please try again."
             );
 
-            selectedPhotoData = "";
-            selectedPhotoName = "";
+
+            selectedPhotoData =
+              "";
+
+
+            selectedPhotoName =
+              "";
+
 
             previewWrapper.style.display =
               "none";
@@ -1496,13 +1981,23 @@
 
       } catch (error) {
 
-        console.error(error);
 
-        selectedPhotoData = "";
-        selectedPhotoName = "";
+        console.error(
+          error
+        );
+
+
+        selectedPhotoData =
+          "";
+
+
+        selectedPhotoName =
+          "";
+
 
         previewWrapper.style.display =
           "none";
+
 
         alert(
           "Photo compress nahi ho paayi. Please try again."
@@ -1521,52 +2016,54 @@
       "click",
       function() {
 
-        selectedPhotoData = "";
-        selectedPhotoName = "";
+
+        selectedPhotoData =
+          "";
+
+
+        selectedPhotoName =
+          "";
+
 
         photoPreview.removeAttribute(
           "src"
         );
 
+
         previewWrapper.style.display =
           "none";
 
-        cameraInput.value = "";
-        fileInput.value = "";
+
+        cameraInput.value =
+          "";
+
+
+        fileInput.value =
+          "";
 
       }
     );
 
 
     /* =====================================================
-       MOBILE INPUT
+       MOBILE
     ====================================================== */
 
     mobileInput.addEventListener(
       "input",
       function() {
 
-        this.value =
-          this.value
-            .replace(/\D/g, "")
-            .slice(0, 10);
-
-      }
-    );
-
-
-    /* =====================================================
-       INVOICE INPUT
-    ====================================================== */
-
-    invoiceInput.addEventListener(
-      "input",
-      function() {
 
         this.value =
           this.value
-            .replace(/\D/g, "")
-            .slice(0, 4);
+            .replace(
+              /\D/g,
+              ""
+            )
+            .slice(
+              0,
+              10
+            );
 
       }
     );
@@ -1578,96 +2075,136 @@
 
     function validateForm() {
 
+
       const name =
         nameInput.value.trim();
+
 
       const mobile =
         mobileInput.value.trim();
 
+
       const invoice =
         invoiceInput.value.trim();
 
-      const storeName =
-        storeInput.value.trim();
+
+      const modelName =
+        modelInput.value.trim();
+
 
       const imei =
         imeiInput.value.trim();
 
 
+      /* NAME */
+
       if (!name) {
+
 
         alert(
           "Please enter Name."
         );
 
+
         nameInput.focus();
+
 
         return false;
 
       }
 
 
-      if (!/^\d{10}$/.test(mobile)) {
+      /* MOBILE */
+
+      if (
+        !/^\d{10}$/.test(
+          mobile
+        )
+      ) {
+
 
         alert(
           "Mobile number exactly 10 digits ka hona chahiye."
         );
 
+
         mobileInput.focus();
+
 
         return false;
 
       }
 
 
-      if (
-        !/^[1-9]\d{0,3}$/.test(invoice) ||
-        Number(invoice) < 1 ||
-        Number(invoice) > 9999
-      ) {
+      /* INVOICE */
+
+      /*
+        Invoice is FREE TEXT.
+        Numbers + alphabets +
+        special characters allowed.
+      */
+
+      if (!invoice) {
+
 
         alert(
-          "Invoice No. 1 se 9999 ke beech hona chahiye."
+          "Please enter Invoice No."
         );
+
 
         invoiceInput.focus();
 
+
         return false;
 
       }
 
 
-      if (!storeName) {
+      /* MODEL NAME */
+
+      if (!modelName) {
+
 
         alert(
-          "Please enter Store Name."
+          "Please enter Model Name."
         );
 
-        storeInput.focus();
+
+        modelInput.focus();
+
 
         return false;
 
       }
 
 
+      /* IMEI */
+
       if (!imei) {
+
 
         alert(
           "Please enter IMEI / S.R NO."
         );
 
+
         imeiInput.focus();
+
 
         return false;
 
       }
 
 
+      /* PHOTO */
+
       if (!selectedPhotoData) {
 
+
         alert(
-          "Please upload customer photo."
+          "Please upload Invoice Photo."
         );
+
 
         return false;
 
@@ -1685,24 +2222,42 @@
 
     function resetForm() {
 
+
       FORM.reset();
 
-      selectedPhotoData = "";
-      selectedPhotoName = "";
+
+      selectedPhotoData =
+        "";
+
+
+      selectedPhotoName =
+        "";
+
 
       photoPreview.removeAttribute(
         "src"
       );
 
+
       previewWrapper.style.display =
         "none";
 
-      cameraInput.value = "";
-      fileInput.value = "";
 
-      submissionPending = false;
+      cameraInput.value =
+        "";
 
-      submitBtn.disabled = false;
+
+      fileInput.value =
+        "";
+
+
+      submissionPending =
+        false;
+
+
+      submitBtn.disabled =
+        false;
+
 
       submitBtn.textContent =
         "🎁 Submit & Celebrate Diwali";
@@ -1718,29 +2273,42 @@
       "submit",
       function(event) {
 
+
         event.preventDefault();
 
 
-        if (submissionPending) {
+        if (
+          submissionPending
+        ) {
+
           return;
+
         }
 
 
-        if (!validateForm()) {
+        if (
+          !validateForm()
+        ) {
+
           return;
+
         }
 
 
-        submissionPending = true;
+        submissionPending =
+          true;
 
-        submitBtn.disabled = true;
+
+        submitBtn.disabled =
+          true;
+
 
         submitBtn.textContent =
           "🎉 Submitted!";
 
 
         /*
-          Create hidden POST form.
+          Hidden form for Apps Script.
         */
 
         const submitForm =
@@ -1752,11 +2320,14 @@
         submitForm.method =
           "POST";
 
+
         submitForm.action =
           APPS_SCRIPT_URL;
 
+
         submitForm.target =
           "appsScriptFrame";
+
 
         submitForm.style.display =
           "none";
@@ -1767,19 +2338,24 @@
           value
         ) {
 
+
           const input =
             document.createElement(
               "input"
             );
 
+
           input.type =
             "hidden";
+
 
           input.name =
             fieldName;
 
+
           input.value =
             value || "";
+
 
           submitForm.appendChild(
             input
@@ -1788,11 +2364,15 @@
         }
 
 
+        /* NAME */
+
         addField(
           "name",
           nameInput.value.trim()
         );
 
+
+        /* MOBILE */
 
         addField(
           "mobile",
@@ -1800,17 +2380,23 @@
         );
 
 
+        /* INVOICE */
+
         addField(
           "invoice",
           invoiceInput.value.trim()
         );
 
 
+        /* MODEL NAME */
+
         addField(
-          "storeName",
-          storeInput.value.trim()
+          "modelName",
+          modelInput.value.trim()
         );
 
+
+        /* IMEI */
 
         addField(
           "imei",
@@ -1818,12 +2404,7 @@
         );
 
 
-        /*
-          IMPORTANT:
-
-          selectedPhotoData is already
-          compressed before reaching here.
-        */
+        /* INVOICE PHOTO */
 
         addField(
           "photoData",
@@ -1834,7 +2415,7 @@
         addField(
           "photoName",
           selectedPhotoName ||
-          "customer-photo.jpg"
+          "invoice-photo.jpg"
         );
 
 
@@ -1844,21 +2425,23 @@
 
 
         /*
-          Send to Apps Script.
+          Send data to Apps Script.
         */
 
         submitForm.submit();
 
 
         /*
-          Customer does not wait for
-          Google response.
+          Do not make customer wait
+          for Apps Script response.
         */
 
         setTimeout(
           function() {
 
+
             resetForm();
+
 
             launchCelebration();
 
@@ -1866,13 +2449,17 @@
             setTimeout(
               function() {
 
+
                 try {
+
                   submitForm.remove();
+
                 } catch (e) {}
 
               },
               5000
             );
+
 
           },
           120
@@ -1883,7 +2470,7 @@
 
 
     /* =====================================================
-       FIREWORKS
+       FIREWORK CANVAS
     ====================================================== */
 
     const canvas =
@@ -1891,19 +2478,31 @@
         "fireworksCanvas"
       );
 
+
     const ctx =
-      canvas.getContext("2d");
+      canvas.getContext(
+        "2d"
+      );
 
 
     let fireworks = [];
-    let particles = [];
-    let animationRunning = false;
 
+    let particles = [];
+
+    let animationRunning =
+      false;
+
+
+    /* =====================================================
+       RESIZE
+    ====================================================== */
 
     function resizeCanvas() {
 
+
       canvas.width =
         window.innerWidth;
+
 
       canvas.height =
         window.innerHeight;
@@ -1917,16 +2516,31 @@
     );
 
 
-    function random(min, max) {
+    /* =====================================================
+       RANDOM
+    ====================================================== */
 
-      return Math.random() *
-        (max - min) +
-        min;
+    function random(
+      min,
+      max
+    ) {
+
+      return (
+        Math.random() *
+        (
+          max - min
+        )
+      ) + min;
 
     }
 
 
+    /* =====================================================
+       CREATE FIREWORK
+    ====================================================== */
+
     function createFirework() {
+
 
       const x =
         random(
@@ -1946,24 +2560,42 @@
 
         x: x,
 
-        y: canvas.height + 10,
+        y:
+          canvas.height + 10,
 
-        targetY: targetY,
+        targetY:
+          targetY,
 
-        speed: random(7, 12),
+        speed:
+          random(
+            7,
+            12
+          ),
 
-        exploded: false
+        exploded:
+          false
 
       });
 
     }
 
 
-    function explode(x, y) {
+    /* =====================================================
+       EXPLODE
+    ====================================================== */
+
+    function explode(
+      x,
+      y
+    ) {
+
 
       const count =
         Math.floor(
-          random(55, 100)
+          random(
+            55,
+            100
+          )
         );
 
 
@@ -1973,13 +2605,18 @@
         i++
       ) {
 
+
         const angle =
           Math.random() *
-          Math.PI * 2;
+          Math.PI *
+          2;
 
 
         const speed =
-          random(2, 8);
+          random(
+            2,
+            8
+          );
 
 
         particles.push({
@@ -1989,21 +2626,29 @@
           y: y,
 
           vx:
-            Math.cos(angle) *
-            speed,
+            Math.cos(
+              angle
+            ) * speed,
 
           vy:
-            Math.sin(angle) *
-            speed,
+            Math.sin(
+              angle
+            ) * speed,
 
           life:
-            random(45, 100),
+            random(
+              45,
+              100
+            ),
 
           maxLife:
             100,
 
           size:
-            random(1.5, 4),
+            random(
+              1.5,
+              4
+            ),
 
           gravity:
             0.045,
@@ -2018,10 +2663,19 @@
     }
 
 
+    /* =====================================================
+       FIREWORK ANIMATION
+    ====================================================== */
+
     function animateFireworks() {
 
-      if (!animationRunning) {
+
+      if (
+        !animationRunning
+      ) {
+
         return;
+
       }
 
 
@@ -2037,20 +2691,24 @@
       );
 
 
-      /* FIREWORK ROCKETS */
+      /* ROCKETS */
 
       for (
         let i =
           fireworks.length - 1;
+
         i >= 0;
+
         i--
       ) {
+
 
         const fw =
           fireworks[i];
 
 
-        fw.y -= fw.speed;
+        fw.y -=
+          fw.speed;
 
 
         ctx.beginPath();
@@ -2066,7 +2724,7 @@
 
 
         ctx.fillStyle =
-          "#fff";
+          "#ffffff";
 
 
         ctx.shadowBlur =
@@ -2085,8 +2743,10 @@
 
 
         if (
-          fw.y <= fw.targetY
+          fw.y <=
+          fw.targetY
         ) {
+
 
           explode(
             fw.x,
@@ -2109,33 +2769,52 @@
       for (
         let i =
           particles.length - 1;
+
         i >= 0;
+
         i--
       ) {
+
 
         const p =
           particles[i];
 
 
-        p.x += p.vx;
-
-        p.y += p.vy;
-
-        p.vy += p.gravity;
-
-        p.vx *= p.friction;
-
-        p.vy *= p.friction;
-
-        p.life -= 1;
+        p.x +=
+          p.vx;
 
 
-        if (p.life <= 0) {
+        p.y +=
+          p.vy;
+
+
+        p.vy +=
+          p.gravity;
+
+
+        p.vx *=
+          p.friction;
+
+
+        p.vy *=
+          p.friction;
+
+
+        p.life -=
+          1;
+
+
+        if (
+          p.life <=
+          0
+        ) {
+
 
           particles.splice(
             i,
             1
           );
+
 
           continue;
 
@@ -2145,7 +2824,8 @@
         const alpha =
           Math.max(
             0,
-            p.life / p.maxLife
+            p.life /
+            p.maxLife
           );
 
 
@@ -2192,10 +2872,11 @@
 
 
     /* =====================================================
-       CRACKERS
+       CRACKER
     ====================================================== */
 
     function crackerBurst() {
+
 
       const cracker =
         document.createElement(
@@ -2208,12 +2889,14 @@
 
 
       const crackers = [
+
         "🎇",
         "🎆",
         "🧨",
         "✨",
         "💥",
         "🌟"
+
       ];
 
 
@@ -2227,15 +2910,24 @@
 
 
       cracker.style.left =
-        random(5, 95) + "%";
+        random(
+          5,
+          95
+        ) + "%";
 
 
       cracker.style.bottom =
-        random(5, 25) + "%";
+        random(
+          5,
+          25
+        ) + "%";
 
 
       cracker.style.animationDuration =
-        random(1.6, 3.2) + "s";
+        random(
+          1.6,
+          3.2
+        ) + "s";
 
 
       celebration.appendChild(
@@ -2261,6 +2953,7 @@
 
     function launchCelebration() {
 
+
       celebration.style.display =
         "block";
 
@@ -2268,9 +2961,12 @@
       resizeCanvas();
 
 
-      fireworks = [];
+      fireworks =
+        [];
 
-      particles = [];
+
+      particles =
+        [];
 
 
       animationRunning =
@@ -2286,6 +2982,7 @@
         i < 5;
         i++
       ) {
+
 
         setTimeout(
           createFirework,
@@ -2306,14 +3003,17 @@
         setInterval(
           function() {
 
+
             if (
               celebration.style.display ===
               "none"
             ) {
 
+
               clearInterval(
                 fireworkInterval
               );
+
 
               return;
 
@@ -2321,6 +3021,7 @@
 
 
             createFirework();
+
 
           },
           650
@@ -2335,14 +3036,17 @@
         setInterval(
           function() {
 
+
             if (
               celebration.style.display ===
               "none"
             ) {
 
+
               clearInterval(
                 crackerInterval
               );
+
 
               return;
 
@@ -2350,6 +3054,7 @@
 
 
             crackerBurst();
+
 
           },
           280
@@ -2359,35 +3064,10 @@
 
 
     /* =====================================================
-       CLOSE CELEBRATION
+       INITIAL CANVAS
     ====================================================== */
 
-    closeCelebration.addEventListener(
-      "click",
-      function() {
-
-        celebration.style.display =
-          "none";
-
-
-        animationRunning =
-          false;
-
-
-        fireworks = [];
-
-        particles = [];
-
-
-        ctx.clearRect(
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
-
-      }
-    );
+    resizeCanvas();
 
   </script>
 
