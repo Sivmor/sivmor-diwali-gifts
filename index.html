@@ -1,439 +1,1558 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>SIVMOR • Happy Diwali</title>
-  <style>
-    :root{
-      --purple:#4b1f6f;
-      --purple2:#6f35a0;
-      --gold:#f6c453;
-      --cream:#fff8e8;
-      --text:#24152f;
-      --muted:#77677f;
-      --white:#fff;
-      --shadow:0 18px 55px rgba(55,20,75,.18);
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="theme-color" content="#173fa8">
+
+<title>SiVMOR DIWALI GIFT</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255,193,7,.18), transparent 25%),
+        radial-gradient(circle at 90% 20%, rgba(255,87,34,.12), transparent 25%),
+        linear-gradient(135deg,#eef3ff,#ffffff,#eef3ff);
+    min-height:100vh;
+    color:#222;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.main{
+    width:100%;
+    max-width:850px;
+    margin:0 auto;
+    padding:15px 10px 40px;
+}
+
+/* =========================
+   HEADER BANNER
+========================= */
+
+.banner{
+    width:100%;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid #d7d7d7;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+    background:#123fa8;
+}
+
+.banner img{
+    display:block;
+    width:100%;
+    height:auto;
+    min-height:120px;
+    object-fit:cover;
+}
+
+/* =========================
+   FORM CARD
+========================= */
+
+.card{
+    margin-top:13px;
+    background:#fff;
+    border-radius:9px;
+    border-top:9px solid #304bb1;
+    box-shadow:0 4px 15px rgba(0,0,0,.14);
+    padding:25px;
+}
+
+.title{
+    font-size:31px;
+    font-weight:400;
+    margin-bottom:10px;
+    color:#151515;
+}
+
+.line{
+    height:1px;
+    background:#ddd;
+    margin-bottom:15px;
+}
+
+.intro{
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:17px;
+    line-height:1.55;
+    border-bottom:1px solid #ddd;
+    padding-bottom:10px;
+    margin-bottom:22px;
+}
+
+.intro strong{
+    font-weight:bold;
+}
+
+.field{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    font-size:15px;
+    font-weight:700;
+    margin-bottom:7px;
+    color:#222;
+}
+
+.required{
+    color:#e00000;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:13px 14px;
+    border:1px solid #c9c9c9;
+    border-radius:6px;
+    font-size:16px;
+    outline:none;
+    background:#fff;
+    transition:.2s;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#304bb1;
+    box-shadow:0 0 0 3px rgba(48,75,177,.12);
+}
+
+input::placeholder{
+    color:#999;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+/* =========================
+   PHOTO AREA
+========================= */
+
+.photo-box{
+    border:2px dashed #b9b9b9;
+    border-radius:10px;
+    padding:15px;
+    background:#fafafa;
+}
+
+.photo-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.photo-btn{
+    border:0;
+    border-radius:7px;
+    padding:13px 17px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    color:white;
+    background:#304bb1;
+    transition:.2s;
+}
+
+.photo-btn:hover{
+    transform:translateY(-1px);
+    opacity:.92;
+}
+
+.photo-btn.camera{
+    background:#d84315;
+}
+
+.photo-btn.gallery{
+    background:#304bb1;
+}
+
+#fileInput{
+    display:none;
+}
+
+#cameraArea{
+    display:none;
+    margin-top:15px;
+    background:#111;
+    border-radius:10px;
+    padding:10px;
+}
+
+#video{
+    width:100%;
+    max-height:380px;
+    object-fit:cover;
+    border-radius:7px;
+    background:#000;
+}
+
+.camera-actions{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+}
+
+.capture{
+    flex:1;
+    background:#00a86b;
+}
+
+.close-camera{
+    flex:1;
+    background:#555;
+}
+
+#previewArea{
+    display:none;
+    margin-top:15px;
+    text-align:center;
+}
+
+#preview{
+    width:100%;
+    max-height:300px;
+    object-fit:contain;
+    border-radius:8px;
+    border:1px solid #ddd;
+    background:#eee;
+}
+
+.remove-photo{
+    margin-top:10px;
+    border:0;
+    background:#b71c1c;
+    color:white;
+    padding:9px 15px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.submit-btn{
+    width:100%;
+    border:0;
+    border-radius:8px;
+    padding:15px;
+    background:linear-gradient(135deg,#1e40af,#304bb1,#173a9b);
+    color:white;
+    font-size:18px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 5px 12px rgba(30,64,175,.28);
+    transition:.2s;
+}
+
+.submit-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 7px 16px rgba(30,64,175,.35);
+}
+
+.submit-btn:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.note{
+    text-align:center;
+    color:#777;
+    font-size:12px;
+    margin-top:10px;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:5000;
+    background:rgba(0,0,0,.72);
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    color:white;
+}
+
+.spinner{
+    width:52px;
+    height:52px;
+    border:5px solid rgba(255,255,255,.3);
+    border-top-color:#ffd700;
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+    margin-bottom:15px;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      min-height:100vh;
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at 10% 5%,rgba(246,196,83,.28),transparent 26%),
-        radial-gradient(circle at 90% 10%,rgba(111,53,160,.20),transparent 30%),
-        linear-gradient(135deg,#fffaf1,#f7effd);
+}
+
+/* =========================
+   DIWALI CELEBRATION
+========================= */
+
+.celebration{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    background:
+        radial-gradient(circle at 50% 30%,rgba(255,193,7,.22),transparent 35%),
+        linear-gradient(135deg,#050b35,#102c78,#050b35);
+    overflow:hidden;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+}
+
+.celebration-card{
+    position:relative;
+    z-index:20;
+    width:min(700px,95vw);
+    padding:30px 20px;
+    border:2px solid rgba(255,215,0,.75);
+    border-radius:22px;
+    background:rgba(0,0,0,.38);
+    box-shadow:
+        0 0 30px rgba(255,193,7,.35),
+        inset 0 0 30px rgba(255,193,7,.08);
+    backdrop-filter:blur(6px);
+}
+
+.diya{
+    font-size:75px;
+    animation:diyaGlow 1s infinite alternate;
+}
+
+@keyframes diyaGlow{
+    from{
+        transform:scale(1);
+        filter:drop-shadow(0 0 5px #ff9800);
     }
-    .wrap{width:min(720px,94%);margin:0 auto;padding:28px 0 50px}
-    .brand{
-      text-align:center;
-      margin-bottom:18px;
+    to{
+        transform:scale(1.08);
+        filter:drop-shadow(0 0 25px #ffd700);
     }
-    .brand .om{font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--purple2);font-weight:800}
-    .brand h1{margin:7px 0 3px;font-size:clamp(28px,7vw,48px);color:var(--purple)}
-    .brand p{margin:0;color:var(--muted)}
+}
+
+.happy{
+    font-family:Georgia,serif;
+    color:#ffd700;
+    font-size:clamp(32px,7vw,62px);
+    font-weight:bold;
+    text-shadow:
+        0 0 10px #ff9800,
+        0 0 25px #ff6f00;
+    margin:8px 0 15px;
+}
+
+.wish{
+    font-family:Georgia,serif;
+    font-size:clamp(18px,4vw,27px);
+    line-height:1.5;
+    color:#fff;
+}
+
+.brand{
+    margin-top:18px;
+    font-size:24px;
+    font-weight:bold;
+    color:#ffd700;
+    letter-spacing:2px;
+}
+
+.follow-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:13px 25px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#ff1744,#e91e63);
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:17px;
+    box-shadow:0 5px 20px rgba(233,30,99,.4);
+    transition:.2s;
+}
+
+.follow-btn:hover{
+    transform:scale(1.05);
+}
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+.particle{
+    position:absolute;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#ffd700;
+    box-shadow:0 0 12px #ffd700;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-20px) scale(.5);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh) scale(1.4);
+        opacity:0;
+    }
+}
+
+/* =========================
+   ERROR MESSAGE
+========================= */
+
+.error{
+    display:none;
+    margin-bottom:15px;
+    padding:12px;
+    border-radius:7px;
+    color:#a30000;
+    background:#ffe8e8;
+    border:1px solid #ffb8b8;
+    font-size:14px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .main{
+        padding:8px 6px 25px;
+    }
+
+    .banner{
+        border-radius:8px;
+    }
+
+    .banner img{
+        min-height:80px;
+    }
+
     .card{
-      background:rgba(255,255,255,.93);
-      border:1px solid rgba(75,31,111,.09);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-      padding:24px;
-      backdrop-filter:blur(10px);
+        margin-top:8px;
+        padding:18px 14px;
+        border-top-width:7px;
     }
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .field{display:flex;flex-direction:column;gap:7px}
-    .field.full{grid-column:1/-1}
-    label{font-weight:750;font-size:14px}
-    input{
-      width:100%;
-      border:1.5px solid #e1d7e7;
-      background:#fff;
-      border-radius:14px;
-      padding:13px 14px;
-      font-size:16px;
-      outline:none;
-      transition:.2s;
+
+    .title{
+        font-size:28px;
     }
-    input:focus{border-color:var(--purple2);box-shadow:0 0 0 4px rgba(111,53,160,.10)}
-    .hint{font-size:12px;color:var(--muted)}
-    .photo-box{
-      border:1.5px dashed #cbb9d6;
-      border-radius:18px;
-      padding:15px;
-      background:#fcf9ff;
+
+    .intro{
+        font-size:16px;
     }
-    .photo-actions{display:flex;gap:10px;flex-wrap:wrap}
-    button{
-      border:0;border-radius:14px;padding:13px 17px;
-      font-size:15px;font-weight:800;cursor:pointer;
-      transition:transform .15s,box-shadow .15s,opacity .15s;
+
+    .row{
+        grid-template-columns:1fr;
+        gap:0;
     }
-    button:hover{transform:translateY(-1px)}
-    button:disabled{opacity:.55;cursor:not-allowed;transform:none}
-    .primary{background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;box-shadow:0 10px 25px rgba(75,31,111,.22)}
-    .gold{background:linear-gradient(135deg,#f6c453,#e9a82d);color:#3c2600}
-    .ghost{background:#fff;border:1px solid #ddcfe5;color:var(--purple)}
-    .submit{width:100%;margin-top:20px;font-size:17px;padding:15px}
-    .preview{display:none;margin-top:14px;position:relative}
-    .preview img{width:100%;max-height:280px;object-fit:cover;border-radius:16px;border:1px solid #e4d9ea}
-    .file-name{margin-top:7px;font-size:12px;color:var(--muted);word-break:break-word}
-    .camera-modal{
-      position:fixed;inset:0;background:rgba(22,8,31,.82);z-index:20;
-      display:none;align-items:center;justify-content:center;padding:18px;
+
+    .photo-buttons{
+        flex-direction:column;
     }
-    .camera-card{width:min(600px,100%);background:#fff;border-radius:24px;padding:16px}
-    video{width:100%;border-radius:18px;background:#111;aspect-ratio:4/3;object-fit:cover}
-    .camera-controls{display:flex;gap:10px;margin-top:12px}
-    .camera-controls button{flex:1}
-    #fileInput,#cameraInput{display:none}
-    .success{
-      position:fixed;inset:0;z-index:30;display:none;overflow:hidden;
-      background:linear-gradient(135deg,#2b0c4a,#6f35a0 55%,#f0ad2f);
-      color:#fff;align-items:center;justify-content:center;text-align:center;padding:25px;
+
+    .photo-btn{
+        width:100%;
     }
-    .success.show{display:flex;animation:fadeIn .45s ease}
-    .success-card{position:relative;z-index:3;width:min(650px,100%)}
-    .diya{font-size:70px;filter:drop-shadow(0 0 18px rgba(255,210,95,.7));animation:float 2s ease-in-out infinite}
-    .success h2{font-size:clamp(36px,9vw,68px);margin:8px 0 0;line-height:1.02}
-    .success p{font-size:18px;opacity:.95}
-    .follow{display:inline-block;text-decoration:none;margin-top:15px}
-    .spark{position:absolute;width:7px;height:7px;border-radius:50%;background:#ffd76b;animation:spark 2.4s linear infinite}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    @keyframes float{50%{transform:translateY(-10px) scale(1.04)}}
-    @keyframes spark{from{transform:translateY(100vh) scale(.2);opacity:0}20%{opacity:1}to{transform:translateY(-20vh) scale(1);opacity:0}}
-    .error{display:none;color:#b42318;font-size:13px;margin-top:12px;font-weight:700}
-    .busy{display:none;text-align:center;color:var(--purple);font-weight:700;margin-top:10px}
-    @media(max-width:620px){.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.card{padding:18px}.photo-actions button{width:100%}}
-  </style>
+
+    .celebration-card{
+        padding:25px 15px;
+    }
+}
+</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="brand">
-      <div class="om">SIVMOR</div>
-      <h1>Customer Response</h1>
-      <p>Fill in your details & submit</p>
+
+<div class="main">
+
+    <!-- =========================================
+         HEADER IMAGE
+         GOOGLE DRIVE FILE ID:
+         17KUZk9cWiBPTdcgRs4s3iJ-bKZDN2Ax4
+    ========================================== -->
+
+    <div class="banner">
+        <img
+            src="https://drive.google.com/uc?export=view&id=17KUZk9cWiBPTdcgRs4s3iJ-bKZDN2Ax4"
+            alt="SiVMOR Diwali Offer"
+            onerror="this.style.display='none';"
+        >
     </div>
+
+
+    <!-- =========================================
+         FORM
+    ========================================== -->
 
     <div class="card">
-      <form id="customerForm">
-        <div class="grid">
-          <div class="field full">
-            <label for="name">Name *</label>
-            <input id="name" name="name" type="text" maxlength="100" autocomplete="name" required placeholder="Enter your name">
-          </div>
 
-          <div class="field">
-            <label for="mobile">Mobile No. *</label>
-            <input id="mobile" name="mobile" type="tel" inputmode="numeric" maxlength="10"
-                   pattern="[0-9]{10}" required placeholder="10 digit mobile number">
-            <div class="hint">Exactly 10 digits only</div>
-          </div>
-
-          <div class="field">
-            <label for="invoice">Invoice No. *</label>
-            <input id="invoice" name="invoice" type="text" inputmode="numeric" maxlength="4"
-                   pattern="[1-9][0-9]{0,3}" required placeholder="1–9999">
-            <div class="hint">Maximum 9999</div>
-          </div>
-
-          <div class="field full">
-            <label for="storeName">Store Name *</label>
-            <input id="storeName" name="storeName" type="text" maxlength="150" required placeholder="Enter store name">
-          </div>
-
-          <div class="field full">
-            <label for="imei">IMEI/S.R NO *</label>
-            <input id="imei" name="imei" type="text" maxlength="100" required placeholder="Enter IMEI / Serial No.">
-            <div class="hint">Any text/number is allowed here.</div>
-          </div>
-
-          <div class="field full">
-            <label>Photo *</label>
-            <div class="photo-box">
-              <div class="photo-actions">
-                <button type="button" class="primary" id="openCamera">📷 Live Camera</button>
-                <button type="button" class="ghost" id="chooseFile">🖼️ Upload / Gallery</button>
-              </div>
-              <input id="cameraInput" type="file" accept="image/*" capture="environment">
-              <input id="fileInput" type="file" accept="image/*">
-              <div id="preview" class="preview">
-                <img id="previewImg" alt="Selected photo preview">
-                <div id="fileName" class="file-name"></div>
-              </div>
-            </div>
-          </div>
+        <div class="title">
+            SiVMOR DIWALI GIFT
         </div>
 
-        <div id="error" class="error"></div>
-        <div id="busy" class="busy">Submitting your details… please wait.</div>
-        <button id="submitBtn" class="gold submit" type="submit">✨ Submit Details</button>
-      </form>
+        <div class="line"></div>
+
+        <div class="intro">
+            <strong>🪔 Celebrate the Festival of Lights with SiVMOR!</strong><br>
+            Spread joy, share happiness, & celebrate together with thoughtful Diwali gifts. ❤️ 🌟
+        </div>
+
+        <div id="errorBox" class="error"></div>
+
+        <form id="customerForm">
+
+            <!-- NAME -->
+
+            <div class="field">
+                <label for="name">
+                    Name <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    maxlength="100"
+                    required
+                >
+            </div>
+
+
+            <!-- MOBILE + INVOICE -->
+
+            <div class="row">
+
+                <div class="field">
+                    <label for="mobile">
+                        Mobile No. <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="mobile"
+                        name="mobile"
+                        placeholder="10 digit mobile number"
+                        inputmode="numeric"
+                        autocomplete="tel"
+                        maxlength="10"
+                        pattern="[0-9]{10}"
+                        required
+                    >
+                </div>
+
+
+                <div class="field">
+                    <label for="invoice">
+                        Invoice No. <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="invoice"
+                        name="invoice"
+                        placeholder="1 - 9999"
+                        inputmode="numeric"
+                        maxlength="4"
+                        pattern="[1-9][0-9]{0,3}"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <!-- STORE NAME -->
+
+            <div class="field">
+
+                <label for="storeName">
+                    Store Name <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="storeName"
+                    name="storeName"
+                    placeholder="Enter store name"
+                    maxlength="150"
+                    required
+                >
+
+            </div>
+
+
+            <!-- IMEI -->
+
+            <div class="field">
+
+                <label for="imei">
+                    IMEI/S.R NO <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="imei"
+                    name="imei"
+                    placeholder="Enter IMEI / S.R No."
+                    maxlength="150"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PHOTO -->
+
+            <div class="field">
+
+                <label>
+                    Photo <span class="required">*</span>
+                </label>
+
+                <div class="photo-box">
+
+                    <div class="photo-buttons">
+
+                        <button
+                            type="button"
+                            class="photo-btn camera"
+                            id="openCamera"
+                        >
+                            📷 Take Photo
+                        </button>
+
+                        <button
+                            type="button"
+                            class="photo-btn gallery"
+                            id="uploadButton"
+                        >
+                            🖼️ Upload Photo
+                        </button>
+
+                    </div>
+
+                    <input
+                        type="file"
+                        id="fileInput"
+                        accept="image/*"
+                    >
+
+
+                    <!-- CAMERA -->
+
+                    <div id="cameraArea">
+
+                        <video
+                            id="video"
+                            autoplay
+                            playsinline
+                            muted
+                        ></video>
+
+                        <div class="camera-actions">
+
+                            <button
+                                type="button"
+                                class="photo-btn capture"
+                                id="capturePhoto"
+                            >
+                                📸 Capture
+                            </button>
+
+                            <button
+                                type="button"
+                                class="photo-btn close-camera"
+                                id="closeCamera"
+                            >
+                                ✕ Close
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PREVIEW -->
+
+                    <div id="previewArea">
+
+                        <img
+                            id="preview"
+                            alt="Selected Photo"
+                        >
+
+                        <br>
+
+                        <button
+                            type="button"
+                            class="remove-photo"
+                            id="removePhoto"
+                        >
+                            Remove Photo
+                        </button>
+
+                    </div>
+
+                    <canvas
+                        id="canvas"
+                        style="display:none"
+                    ></canvas>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="submit-btn"
+                id="submitBtn"
+            >
+                ✨ SUBMIT DETAILS ✨
+            </button>
+
+            <div class="note">
+                Please check all details before submitting.
+            </div>
+
+        </form>
+
     </div>
-  </div>
 
-  <!-- Hidden POST target: avoids CORS problems with the Apps Script endpoint. -->
-  <iframe name="submitFrame" id="submitFrame" style="display:none"></iframe>
+</div>
 
-  <div class="camera-modal" id="cameraModal">
-    <div class="camera-card">
-      <video id="video" autoplay playsinline muted></video>
-      <div class="camera-controls">
-        <button type="button" class="ghost" id="closeCamera">Close</button>
-        <button type="button" class="primary" id="takePhoto">📸 Take Photo</button>
-      </div>
+
+<!-- =========================================
+     LOADING
+========================================== -->
+
+<div class="loading" id="loading">
+
+    <div class="spinner"></div>
+
+    <div style="font-size:18px;font-weight:bold;">
+        Submitting your details...
     </div>
-  </div>
 
-  <div class="success" id="success">
-    <div id="sparks"></div>
-    <div class="success-card">
-      <div class="diya">🪔</div>
-      <h2>Happy Diwali!</h2>
-      <p>✨ SIVMOR ki taraf se aapko aur aapke parivaar ko Deepawali ki hardik shubhkamnayein ✨</p>
-      <p>Your details have been submitted successfully.</p>
-      <a class="gold follow" id="followBtn" href="https://www.instagram.com/" target="_blank" rel="noopener">❤️ Follow Us</a>
+    <div style="margin-top:6px;font-size:13px;color:#ddd;">
+        Please wait
     </div>
-  </div>
 
-  <script>
-    // 1) Paste your deployed Apps Script /exec URL here.
-    const APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+</div>
 
-    const form = document.getElementById('customerForm');
-    const mobile = document.getElementById('mobile');
-    const invoice = document.getElementById('invoice');
-    const errorBox = document.getElementById('error');
-    const busy = document.getElementById('busy');
-    const submitBtn = document.getElementById('submitBtn');
 
-    const cameraModal = document.getElementById('cameraModal');
-    const video = document.getElementById('video');
-    let cameraStream = null;
-    let selectedPhotoDataUrl = '';
-    let selectedPhotoName = '';
+<!-- =========================================
+     DIWALI SUCCESS SCREEN
+========================================== -->
 
-    // Hard input restrictions.
-    mobile.addEventListener('input', () => {
-      mobile.value = mobile.value.replace(/\D/g, '').slice(0, 10);
-    });
+<div class="celebration" id="celebration">
 
-    invoice.addEventListener('input', () => {
-      invoice.value = invoice.value.replace(/\D/g, '').slice(0, 4);
-    });
+    <div class="celebration-card">
 
-    document.getElementById('chooseFile').onclick = () => {
-      document.getElementById('fileInput').click();
-    };
+        <div class="diya">
+            🪔
+        </div>
 
-    document.getElementById('cameraInput').addEventListener('change', (e) => {
-      if (e.target.files && e.target.files[0]) setPhoto(e.target.files[0]);
-    });
+        <div class="happy">
+            HAPPY DIWALI!
+        </div>
 
-    document.getElementById('fileInput').addEventListener('change', (e) => {
-      if (e.target.files && e.target.files[0]) setPhoto(e.target.files[0]);
-    });
+        <div class="wish">
+            SIVMOR की तरफ से आपको और आपके परिवार को
+            <br>
+            दीपावली की हार्दिक शुभकामनाएं!
+            <br><br>
+            ✨ आपका जीवन खुशियों, समृद्धि और सफलता से भरपूर रहे। ✨
+        </div>
 
-    function setPhoto(file) {
-      if (!file.type.startsWith('image/')) {
-        showError('Please select an image file only.');
-        return;
-      }
-      selectedPhotoName = file.name || 'customer-photo.jpg';
+        <div class="brand">
+            ❤️ SiVMOR GADGETS ❤️
+        </div>
 
-      const reader = new FileReader();
-      reader.onload = () => {
-        // Resize/compress before sending so the request stays lightweight.
-        compressImage(reader.result, 1280, 0.78).then(dataUrl => {
-          selectedPhotoDataUrl = dataUrl;
-          document.getElementById('previewImg').src = dataUrl;
-          document.getElementById('fileName').textContent = selectedPhotoName;
-          document.getElementById('preview').style.display = 'block';
-          clearError();
-        }).catch(() => showError('Could not process the selected photo.'));
-      };
-      reader.readAsDataURL(file);
-    }
+        <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="follow-btn"
+        >
+            ❤️ Follow Us
+        </a>
 
-    async function compressImage(dataUrl, maxSize, quality) {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => {
-          let w = img.width, h = img.height;
-          const scale = Math.min(1, maxSize / Math.max(w, h));
-          w = Math.round(w * scale);
-          h = Math.round(h * scale);
+    </div>
 
-          const canvas = document.createElement('canvas');
-          canvas.width = w; canvas.height = h;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, w, h);
-          resolve(canvas.toDataURL('image/jpeg', quality));
-        };
-        img.onerror = reject;
-        img.src = dataUrl;
-      });
-    }
+</div>
 
-    // Inline live camera.
-    document.getElementById('openCamera').onclick = async () => {
-      clearError();
-      try {
-        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-          // Fallback to mobile camera/file picker.
-          document.getElementById('cameraInput').click();
-          return;
+
+<script>
+
+/* =====================================================
+   IMPORTANT:
+   YOUR GOOGLE APPS SCRIPT WEB APP URL
+===================================================== */
+
+const APPS_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbzgBKUyiobRBCJGLIITYLLliH1CDlirIXbcX8Av8p0htEiWxIVTqCLtJYDULR8dmrRr/exec";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const form = document.getElementById("customerForm");
+
+const nameInput = document.getElementById("name");
+const mobileInput = document.getElementById("mobile");
+const invoiceInput = document.getElementById("invoice");
+const storeInput = document.getElementById("storeName");
+const imeiInput = document.getElementById("imei");
+
+const fileInput = document.getElementById("fileInput");
+
+const openCameraBtn = document.getElementById("openCamera");
+const uploadButton = document.getElementById("uploadButton");
+
+const cameraArea = document.getElementById("cameraArea");
+const video = document.getElementById("video");
+const capturePhotoBtn = document.getElementById("capturePhoto");
+const closeCameraBtn = document.getElementById("closeCamera");
+
+const canvas = document.getElementById("canvas");
+
+const previewArea = document.getElementById("previewArea");
+const preview = document.getElementById("preview");
+const removePhotoBtn = document.getElementById("removePhoto");
+
+const loading = document.getElementById("loading");
+const submitBtn = document.getElementById("submitBtn");
+
+const celebration = document.getElementById("celebration");
+const errorBox = document.getElementById("errorBox");
+
+let stream = null;
+let photoData = "";
+let photoName = "customer-photo.jpg";
+
+
+/* =====================================================
+   MOBILE NUMBER
+   ONLY DIGITS
+   EXACTLY 10 DIGITS
+===================================================== */
+
+mobileInput.addEventListener("input", function(){
+
+    this.value = this.value
+        .replace(/\D/g, "")
+        .slice(0, 10);
+
+});
+
+
+/* =====================================================
+   INVOICE
+   ONLY DIGITS
+   MAX 9999
+===================================================== */
+
+invoiceInput.addEventListener("input", function(){
+
+    this.value = this.value
+        .replace(/\D/g, "")
+        .slice(0, 4);
+
+    if(this.value !== ""){
+
+        let number = Number(this.value);
+
+        if(number > 9999){
+            this.value = "9999";
         }
-        cameraStream = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: { ideal: 'environment' }, width: { ideal: 1280 }, height: { ideal: 720 } },
-          audio: false
+
+    }
+
+});
+
+
+/* =====================================================
+   UPLOAD BUTTON
+===================================================== */
+
+uploadButton.addEventListener("click", function(){
+    fileInput.click();
+});
+
+
+fileInput.addEventListener("change", function(){
+
+    const file = this.files[0];
+
+    if(!file){
+        return;
+    }
+
+    if(!file.type.startsWith("image/")){
+        showError("Please select an image file only.");
+        return;
+    }
+
+    photoName = file.name || "customer-photo.jpg";
+
+    compressImage(file);
+
+});
+
+
+/* =====================================================
+   CAMERA
+===================================================== */
+
+openCameraBtn.addEventListener("click", async function(){
+
+    errorBox.style.display = "none";
+
+    if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+
+        showError(
+            "Camera is not supported in this browser. Please use Upload Photo."
+        );
+
+        return;
+    }
+
+    try{
+
+        stream = await navigator.mediaDevices.getUserMedia({
+            video:{
+                facingMode:{
+                    ideal:"environment"
+                },
+                width:{
+                    ideal:1280
+                },
+                height:{
+                    ideal:720
+                }
+            },
+            audio:false
         });
-        video.srcObject = cameraStream;
-        cameraModal.style.display = 'flex';
-      } catch (err) {
-        // Camera permission can be denied; fall back to native camera picker.
-        document.getElementById('cameraInput').click();
-      }
+
+        video.srcObject = stream;
+
+        cameraArea.style.display = "block";
+
+        openCameraBtn.style.display = "none";
+        uploadButton.style.display = "none";
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showError(
+            "Camera permission nahi mili. Browser me camera permission Allow karein ya Upload Photo use karein."
+        );
+
+    }
+
+});
+
+
+/* =====================================================
+   CAPTURE PHOTO
+===================================================== */
+
+capturePhotoBtn.addEventListener("click", function(){
+
+    if(!stream){
+        return;
+    }
+
+    const videoWidth = video.videoWidth;
+    const videoHeight = video.videoHeight;
+
+    if(!videoWidth || !videoHeight){
+        showError("Camera ready nahi hua. Please thoda wait karke dobara try karein.");
+        return;
+    }
+
+    canvas.width = videoWidth;
+    canvas.height = videoHeight;
+
+    const ctx = canvas.getContext("2d");
+
+    ctx.drawImage(
+        video,
+        0,
+        0,
+        videoWidth,
+        videoHeight
+    );
+
+    canvas.toBlob(function(blob){
+
+        if(blob){
+
+            photoName = "camera-photo.jpg";
+
+            compressImage(blob);
+
+            stopCamera();
+
+        }
+
+    }, "image/jpeg", .88);
+
+});
+
+
+/* =====================================================
+   CLOSE CAMERA
+===================================================== */
+
+closeCameraBtn.addEventListener("click", function(){
+
+    stopCamera();
+
+});
+
+
+function stopCamera(){
+
+    if(stream){
+
+        stream.getTracks().forEach(function(track){
+            track.stop();
+        });
+
+        stream = null;
+
+    }
+
+    video.srcObject = null;
+
+    cameraArea.style.display = "none";
+
+    openCameraBtn.style.display = "";
+    uploadButton.style.display = "";
+
+}
+
+
+/* =====================================================
+   COMPRESS PHOTO
+   Keeps upload reasonably small for Apps Script
+===================================================== */
+
+function compressImage(file){
+
+    const reader = new FileReader();
+
+    reader.onload = function(event){
+
+        const img = new Image();
+
+        img.onload = function(){
+
+            const MAX_SIZE = 1280;
+
+            let width = img.width;
+            let height = img.height;
+
+            if(width > height){
+
+                if(width > MAX_SIZE){
+
+                    height = Math.round(
+                        height * MAX_SIZE / width
+                    );
+
+                    width = MAX_SIZE;
+
+                }
+
+            }
+            else{
+
+                if(height > MAX_SIZE){
+
+                    width = Math.round(
+                        width * MAX_SIZE / height
+                    );
+
+                    height = MAX_SIZE;
+
+                }
+
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+
+            const ctx = canvas.getContext("2d");
+
+            ctx.fillStyle = "#ffffff";
+
+            ctx.fillRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+            ctx.drawImage(
+                img,
+                0,
+                0,
+                width,
+                height
+            );
+
+            photoData = canvas.toDataURL(
+                "image/jpeg",
+                .78
+            );
+
+            preview.src = photoData;
+
+            previewArea.style.display = "block";
+
+        };
+
+        img.onerror = function(){
+
+            showError("Photo process nahi ho payi. Please another photo try karein.");
+
+        };
+
+        img.src = event.target.result;
+
     };
 
-    document.getElementById('takePhoto').onclick = async () => {
-      if (!cameraStream) return;
+    reader.readAsDataURL(file);
 
-      const canvas = document.createElement('canvas');
-      const w = video.videoWidth || 1280;
-      const h = video.videoHeight || 720;
-      const scale = Math.min(1, 1280 / Math.max(w, h));
-      canvas.width = Math.round(w * scale);
-      canvas.height = Math.round(h * scale);
+}
 
-      canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-      selectedPhotoDataUrl = canvas.toDataURL('image/jpeg', 0.78);
-      selectedPhotoName = 'camera-photo.jpg';
 
-      document.getElementById('previewImg').src = selectedPhotoDataUrl;
-      document.getElementById('fileName').textContent = 'Camera photo';
-      document.getElementById('preview').style.display = 'block';
+/* =====================================================
+   REMOVE PHOTO
+===================================================== */
 
-      stopCamera();
-      clearError();
-    };
+removePhotoBtn.addEventListener("click", function(){
 
-    document.getElementById('closeCamera').onclick = stopCamera;
+    photoData = "";
+    photoName = "customer-photo.jpg";
 
-    function stopCamera() {
-      if (cameraStream) {
-        cameraStream.getTracks().forEach(track => track.stop());
-        cameraStream = null;
-      }
-      video.srcObject = null;
-      cameraModal.style.display = 'none';
+    fileInput.value = "";
+
+    preview.src = "";
+
+    previewArea.style.display = "none";
+
+});
+
+
+/* =====================================================
+   FORM SUBMIT
+===================================================== */
+
+form.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    errorBox.style.display = "none";
+
+    /* NAME */
+
+    const name = nameInput.value.trim();
+
+    if(!name){
+
+        showError("Please enter your name.");
+        nameInput.focus();
+        return;
+
     }
 
-    function showError(msg) {
-      errorBox.textContent = msg;
-      errorBox.style.display = 'block';
+
+    /* MOBILE */
+
+    const mobile = mobileInput.value.trim();
+
+    if(!/^\d{10}$/.test(mobile)){
+
+        showError(
+            "Mobile number exactly 10 digits ka hona chahiye."
+        );
+
+        mobileInput.focus();
+
+        return;
+
     }
-    function clearError() {
-      errorBox.textContent = '';
-      errorBox.style.display = 'none';
+
+
+    /* INVOICE */
+
+    const invoice = invoiceInput.value.trim();
+
+    if(!/^[1-9]\d{0,3}$/.test(invoice)){
+
+        showError(
+            "Invoice No. 1 se 9999 ke beech hona chahiye."
+        );
+
+        invoiceInput.focus();
+
+        return;
+
     }
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      clearError();
+    if(Number(invoice) > 9999){
 
-      if (APPS_SCRIPT_URL.includes('PASTE_')) {
-        showError('Apps Script URL is not configured yet.');
+        showError(
+            "Invoice No. 9999 se zyada allowed nahi hai."
+        );
+
+        invoiceInput.focus();
+
         return;
-      }
 
-      if (!/^\d{10}$/.test(mobile.value)) {
-        showError('Mobile No. must be exactly 10 digits.');
-        mobile.focus();
+    }
+
+
+    /* STORE */
+
+    const storeName = storeInput.value.trim();
+
+    if(!storeName){
+
+        showError("Please enter Store Name.");
+        storeInput.focus();
         return;
-      }
 
-      const inv = Number(invoice.value);
-      if (!/^[1-9]\d{0,3}$/.test(invoice.value) || inv > 9999) {
-        showError('Invoice No. must be between 1 and 9999.');
-        invoice.focus();
+    }
+
+
+    /* IMEI */
+
+    const imei = imeiInput.value.trim();
+
+    if(!imei){
+
+        showError("Please enter IMEI/S.R NO.");
+        imeiInput.focus();
         return;
-      }
 
-      if (!selectedPhotoDataUrl) {
-        showError('Please take a photo or upload a photo.');
+    }
+
+
+    /* PHOTO */
+
+    if(!photoData){
+
+        showError(
+            "Please Take Photo ya Upload Photo karein."
+        );
+
         return;
-      }
 
-      // Add a hidden payload and submit normally to the Apps Script iframe.
-      let payload = document.getElementById('photoData');
-      if (!payload) {
-        payload = document.createElement('input');
-        payload.type = 'hidden';
-        payload.name = 'photoData';
-        payload.id = 'photoData';
-        form.appendChild(payload);
-      }
-      payload.value = selectedPhotoDataUrl;
+    }
 
-      let pName = document.getElementById('photoName');
-      if (!pName) {
-        pName = document.createElement('input');
-        pName.type = 'hidden';
-        pName.name = 'photoName';
-        pName.id = 'photoName';
-        form.appendChild(pName);
-      }
-      pName.value = selectedPhotoName || 'customer-photo.jpg';
 
-      form.action = APPS_SCRIPT_URL;
-      form.method = 'POST';
-      form.target = 'submitFrame';
+    /* SEND */
 
-      busy.style.display = 'block';
-      submitBtn.disabled = true;
+    submitToGoogleSheet({
 
-      form.submit();
+        name:name,
+        mobile:mobile,
+        invoice:invoice,
+        storeName:storeName,
+        imei:imei,
+        photoData:photoData,
+        photoName:photoName
+
     });
 
-    // Apps Script response posts the actual success/failure back to this page.
-    window.addEventListener('message', (event) => {
-      const data = event.data || {};
-      if (data.type !== 'SIVMOR_FORM_RESULT') return;
+});
 
-      busy.style.display = 'none';
-      submitBtn.disabled = false;
 
-      if (data.status === 'SUCCESS') {
+/* =====================================================
+   SUBMIT TO GOOGLE APPS SCRIPT
+===================================================== */
+
+function submitToGoogleSheet(data){
+
+    submitBtn.disabled = true;
+
+    loading.style.display = "flex";
+
+
+    /*
+       We use a hidden iframe + form POST.
+
+       This works cross-origin with Apps Script
+       without requiring CORS headers on the script.
+    */
+
+    const iframeName =
+        "submitFrame_" + Date.now();
+
+    const iframe =
+        document.createElement("iframe");
+
+    iframe.name = iframeName;
+
+    iframe.style.display = "none";
+
+    document.body.appendChild(iframe);
+
+
+    const postForm =
+        document.createElement("form");
+
+    postForm.method = "POST";
+
+    postForm.action = APPS_SCRIPT_URL;
+
+    postForm.target = iframeName;
+
+    postForm.style.display = "none";
+
+
+    addHiddenInput(
+        postForm,
+        "name",
+        data.name
+    );
+
+    addHiddenInput(
+        postForm,
+        "mobile",
+        data.mobile
+    );
+
+    addHiddenInput(
+        postForm,
+        "invoice",
+        data.invoice
+    );
+
+    addHiddenInput(
+        postForm,
+        "storeName",
+        data.storeName
+    );
+
+    addHiddenInput(
+        postForm,
+        "imei",
+        data.imei
+    );
+
+    addHiddenInput(
+        postForm,
+        "photoData",
+        data.photoData
+    );
+
+    addHiddenInput(
+        postForm,
+        "photoName",
+        data.photoName
+    );
+
+
+    document.body.appendChild(postForm);
+
+
+    /*
+       Submit request.
+    */
+
+    postForm.submit();
+
+
+    /*
+       Apps Script request submit hone ke baad
+       celebration show kar dete hain.
+    */
+
+    setTimeout(function(){
+
+        loading.style.display = "none";
+
+        submitBtn.disabled = false;
+
+        postForm.remove();
+        iframe.remove();
+
         showCelebration();
-        form.reset();
-        selectedPhotoDataUrl = '';
-        selectedPhotoName = '';
-        document.getElementById('preview').style.display = 'none';
-      } else {
-        showError(data.message || 'Submission failed. Please try again.');
-      }
+
+    }, 1800);
+
+}
+
+
+function addHiddenInput(form, name, value){
+
+    const input =
+        document.createElement("input");
+
+    input.type = "hidden";
+
+    input.name = name;
+
+    input.value = value;
+
+    form.appendChild(input);
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showError(message){
+
+    errorBox.textContent = message;
+
+    errorBox.style.display = "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
     });
 
-    function showCelebration() {
-      const success = document.getElementById('success');
-      const sparks = document.getElementById('sparks');
-      sparks.innerHTML = '';
+}
 
-      for (let i = 0; i < 55; i++) {
-        const s = document.createElement('span');
-        s.className = 'spark';
-        s.style.left = Math.random() * 100 + '%';
-        s.style.animationDelay = (Math.random() * 2.5) + 's';
-        s.style.animationDuration = (1.8 + Math.random() * 2.5) + 's';
-        sparks.appendChild(s);
-      }
-      success.classList.add('show');
+
+/* =====================================================
+   DIWALI CELEBRATION
+===================================================== */
+
+function showCelebration(){
+
+    celebration.style.display = "flex";
+
+    createParticles();
+
+    /*
+       Small delay so the user clearly sees
+       the Diwali celebration.
+    */
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+function createParticles(){
+
+    /*
+       Remove old particles.
+    */
+
+    celebration
+        .querySelectorAll(".particle")
+        .forEach(function(p){
+            p.remove();
+        });
+
+
+    for(let i=0; i<80; i++){
+
+        const particle =
+            document.createElement("div");
+
+        particle.className = "particle";
+
+        particle.style.left =
+            Math.random() * 100 + "%";
+
+        particle.style.animationDuration =
+            (2 + Math.random() * 5) + "s";
+
+        particle.style.animationDelay =
+            Math.random() * 4 + "s";
+
+        particle.style.width =
+            (3 + Math.random() * 7) + "px";
+
+        particle.style.height =
+            particle.style.width;
+
+        celebration.appendChild(particle);
+
     }
 
-    // Replace this with SIVMOR's real Instagram URL.
-    document.getElementById('followBtn').href = 'https://www.instagram.com/';
-  </script>
+}
+
+
+/* =====================================================
+   PAGE EXIT
+===================================================== */
+
+window.addEventListener("beforeunload", function(){
+
+    stopCamera();
+
+});
+
+
+</script>
+
 </body>
 </html>
