@@ -1,1076 +1,604 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SiVMOR Diwali Gift</title>
-
-<meta name="theme-color" content="#111b5e">
-
-<style>
-
-/* =====================================================
-   GLOBAL
-===================================================== */
-
-*{
-  box-sizing:border-box;
-}
-
-html,
-body{
-  margin:0;
-  padding:0;
-  min-height:100%;
-}
-
-body{
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  color:#171717;
-
-  background:
-    radial-gradient(
-      circle at 8% 8%,
-      rgba(255,205,75,.24),
-      transparent 28%
-    ),
-
-    radial-gradient(
-      circle at 92% 12%,
-      rgba(255,100,100,.18),
-      transparent 30%
-    ),
-
-    linear-gradient(
-      135deg,
-      #fffdf5,
-      #fff7f2 50%,
-      #f5f7ff
-    );
-
-  overflow-x:hidden;
-}
-
-
-/* =====================================================
-   MAIN
-===================================================== */
-
-.page{
-  width:min(760px,94vw);
-  margin:18px auto 45px;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-  overflow:hidden;
-
-  background:#fff;
-
-  border-radius:20px;
-
-  border:1px solid rgba(31,63,191,.12);
-
-  box-shadow:
-    0 16px 45px rgba(15,27,80,.16);
-
-  margin-bottom:18px;
-}
-
-
-/* HEADER IMAGE */
-
-.hero-image-area{
-  position:relative;
-
-  width:100%;
-  min-height:180px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  background:#fff;
-
-  overflow:hidden;
-}
-
-.hero-image{
-  width:100%;
-  height:auto;
-
-  max-height:350px;
-
-  display:block;
-
-  object-fit:cover;
-
-  object-position:center;
-}
-
-
-/* fallback banner */
-
-.hero-fallback{
-  display:none;
-
-  width:100%;
-
-  padding:35px 20px;
-
-  text-align:center;
-
-  color:white;
-
-  position:relative;
-
-  overflow:hidden;
-
-  background:
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(255,255,255,.20),
-      transparent 20%
-    ),
-
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(255,215,0,.22),
-      transparent 20%
-    ),
-
-    linear-gradient(
-      135deg,
-      #111b5e,
-      #293fb5 50%,
-      #7a1027
-    );
-}
-
-.hero-fallback-logo{
-  font-size:32px;
-  font-weight:900;
-}
-
-.hero-fallback-main{
-  margin-top:10px;
-
-  font-size:28px;
-  font-weight:900;
-}
-
-.hero-fallback-sub{
-  margin-top:8px;
-
-  font-size:17px;
-  font-weight:700;
-}
-
-
-/* HEADER TEXT */
-
-.hero-copy{
-  padding:20px 22px 23px;
-
-  text-align:center;
-
-  background:
-    linear-gradient(
-      #fff,
-      #fffaf4
-    );
-
-  border-top:1px solid #eee;
-}
-
-.hero-copy h1{
-  margin:0 0 10px;
-
-  font-size:30px;
-
-  font-weight:900;
-}
-
-.hero-copy .lead{
-  margin:0;
-
-  font-size:18px;
-
-  font-weight:800;
-
-  line-height:1.45;
-}
-
-.hero-copy .sub{
-  margin:7px 0 0;
-
-  color:#555;
-
-  font-size:15px;
-
-  line-height:1.55;
-}
-
-
-/* =====================================================
-   FORM CARD
-===================================================== */
-
-.card{
-  background:rgba(255,255,255,.97);
-
-  border-radius:20px;
-
-  overflow:hidden;
-
-  border:1px solid rgba(31,63,191,.10);
-
-  box-shadow:
-    0 16px 45px rgba(15,27,80,.13);
-}
-
-.card-top{
-  height:7px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #1f3fbf,
-      #526fe0,
-      #ffb300,
-      #ff5a36,
-      #1f3fbf
-    );
-}
-
-.form-inner{
-  padding:25px;
-}
-
-.section-title{
-  margin:0 0 5px;
-
-  font-size:23px;
-
-  font-weight:900;
-}
-
-.section-sub{
-  margin:0 0 22px;
-
-  color:#666;
-
-  font-size:14px;
-}
-
-
-/* =====================================================
-   INPUTS
-===================================================== */
-
-.field{
-  margin-bottom:17px;
-}
-
-label{
-  display:block;
-
-  margin-bottom:7px;
-
-  font-size:14px;
-
-  font-weight:800;
-}
-
-.required{
-  color:#e21e32;
-}
-
-input{
-  width:100%;
-
-  padding:13px 14px;
-
-  border:
-    1.5px solid #d7dbe7;
-
-  border-radius:12px;
-
-  outline:none;
-
-  background:#fff;
-
-  font-size:16px;
-
-  transition:.2s;
-}
-
-input:focus{
-  border-color:#1f3fbf;
-
-  box-shadow:
-    0 0 0 4px rgba(31,63,191,.09);
-}
-
-input.invalid{
-  border-color:#df2338;
-
-  box-shadow:
-    0 0 0 4px rgba(223,35,56,.08);
-}
-
-.hint{
-  margin-top:5px;
-
-  color:#777;
-
-  font-size:12px;
-}
-
-
-/* =====================================================
-   PHOTO
-===================================================== */
-
-.photo-box{
-  padding:16px;
-
-  border:
-    2px dashed #cbd2e6;
-
-  border-radius:16px;
-
-  background:#fbfcff;
-}
-
-.photo-actions{
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:10px;
-}
-
-.photo-btn{
-  border:0;
-
-  border-radius:12px;
-
-  padding:13px 10px;
-
-  cursor:pointer;
-
-  font-size:14px;
-
-  font-weight:900;
-
-  background:#eef2ff;
-
-  color:#18318f;
-}
-
-.photo-btn.primary{
-  color:#fff;
-
-  background:
-    linear-gradient(
-      135deg,
-      #1f3fbf,
-      #4f67d7
-    );
-}
-
-.photo-preview{
-  display:none;
-
-  position:relative;
-
-  margin-top:13px;
-}
-
-.photo-preview img{
-  display:block;
-
-  width:100%;
-
-  max-height:280px;
-
-  object-fit:contain;
-
-  border-radius:14px;
-
-  background:#111;
-}
-
-.remove-photo{
-  position:absolute;
-
-  top:8px;
-  right:8px;
-
-  width:34px;
-  height:34px;
-
-  border:0;
-
-  border-radius:50%;
-
-  cursor:pointer;
-
-  color:#fff;
-
-  background:rgba(0,0,0,.72);
-
-  font-size:20px;
-}
-
-
-/* =====================================================
-   SUBMIT
-===================================================== */
-
-.submit{
-  width:100%;
-
-  margin-top:6px;
-
-  padding:15px;
-
-  border:0;
-
-  border-radius:14px;
-
-  cursor:pointer;
-
-  color:#fff;
-
-  font-size:17px;
-
-  font-weight:900;
-
-  background:
-    linear-gradient(
-      135deg,
-      #e83924,
-      #ff7a00 52%,
-      #ffb300
-    );
-
-  box-shadow:
-    0 10px 24px rgba(232,57,36,.24);
-}
-
-.submit:disabled{
-  opacity:.65;
-
-  cursor:not-allowed;
-}
-
-
-/* =====================================================
-   STATUS
-===================================================== */
-
-.status{
-  display:none;
-
-  margin-top:14px;
-
-  padding:12px 14px;
-
-  border-radius:12px;
-
-  font-size:14px;
-
-  font-weight:700;
-}
-
-.status.error{
-  display:block;
-
-  color:#a4142a;
-
-  background:#fff0f2;
-
-  border:1px solid #ffc8d0;
-}
-
-.status.success{
-  display:block;
-
-  color:#08733f;
-
-  background:#edfff5;
-
-  border:1px solid #b8efd1;
-}
-
-
-/* =====================================================
-   PRIVACY
-===================================================== */
-
-.privacy{
-  margin-top:14px;
-
-  text-align:center;
-
-  color:#888;
-
-  font-size:11px;
-
-  line-height:1.5;
-}
-
-
-/* =====================================================
-   HIDDEN IFRAME
-===================================================== */
-
-#appsScriptFrame{
-  position:absolute;
-
-  width:1px;
-  height:1px;
-
-  border:0;
-
-  left:-9999px;
-
-  top:-9999px;
-
-  opacity:0;
-}
-
-
-/* =====================================================
-   DIWALI SUCCESS SCREEN
-===================================================== */
-
-#celebration{
-  position:fixed;
-
-  inset:0;
-
-  z-index:99999;
-
-  display:none;
-
-  overflow:hidden;
-
-  background:
-    radial-gradient(
-      circle at 50% 45%,
-      rgba(25,29,91,.15),
-      rgba(3,5,25,.94) 72%
-    ),
-
-    #03051b;
-}
-
-#fireworks{
-  position:absolute;
-
-  inset:0;
-
-  width:100%;
-  height:100%;
-}
-
-
-/* CONTENT */
-
-.success-content{
-  position:absolute;
-
-  inset:0;
-
-  z-index:10;
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  justify-content:center;
-
-  padding:20px;
-
-  color:#fff;
-
-  text-align:center;
-
-  pointer-events:none;
-}
-
-
-/* DIYA */
-
-.success-diya{
-  font-size:75px;
-
-  filter:
-    drop-shadow(
-      0 0 18px #ff9d00
-    );
-
-  animation:
-    diyaPulse .75s
-    ease-in-out
-    infinite
-    alternate;
-}
-
-
-/* SMALL TEXT */
-
-.success-small{
-  margin-top:7px;
-
-  color:#ffe6a6;
-
-  font-size:17px;
-
-  font-weight:700;
-
-  letter-spacing:.6px;
-}
-
-
-/* HAPPY DIWALI */
-
-.success-title{
-  margin:6px 0 0;
-
-  font-size:
-    clamp(
-      38px,
-      8vw,
-      76px
-    );
-
-  line-height:1.02;
-
-  font-weight:1000;
-
-  color:#ffd54a;
-
-  text-shadow:
-    0 0 8px #ff8c00,
-    0 0 22px #ff5a00,
-    0 0 42px rgba(255,180,0,.65);
-
-  animation:
-    titlePop .8s
-    cubic-bezier(.17,.89,.32,1.25)
-    both;
-}
-
-
-/* BRAND */
-
-.success-brand{
-  margin-top:12px;
-
-  font-size:
-    clamp(
-      22px,
-      4vw,
-      35px
-    );
-
-  font-weight:1000;
-
-  letter-spacing:1px;
-}
-
-
-/* MESSAGE */
-
-.success-message{
-  margin-top:7px;
-
-  max-width:600px;
-
-  color:#fff5db;
-
-  font-size:16px;
-
-  line-height:1.5;
-}
-
-
-/* =====================================================
-   INSTAGRAM BUTTON
-===================================================== */
-
-.instagram-btn{
-  pointer-events:auto;
-
-  display:inline-flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:10px;
-
-  margin-top:22px;
-
-  padding:13px 21px;
-
-  border-radius:999px;
-
-  text-decoration:none;
-
-  color:#fff;
-
-  font-size:15px;
-
-  font-weight:900;
-
-  background:
-    linear-gradient(
-      135deg,
-      #833ab4,
-      #fd1d1d,
-      #fcb045
-    );
-
-  box-shadow:
-    0 12px 35px rgba(253,29,29,.30);
-
-  opacity:0;
-
-  transform:translateY(15px);
-
-  animation:
-    buttonIn .7s .45s
-    ease forwards;
-}
-
-.instagram-logo{
-  width:23px;
-
-  height:23px;
-
-  flex:0 0 23px;
-}
-
-
-/* CLOSE */
-
-.skip-btn{
-  position:absolute;
-
-  z-index:20;
-
-  right:18px;
-
-  bottom:18px;
-
-  pointer-events:auto;
-
-  padding:9px 14px;
-
-  border:
-    1px solid rgba(255,255,255,.30);
-
-  border-radius:999px;
-
-  cursor:pointer;
-
-  color:#fff;
-
-  background:
-    rgba(255,255,255,.08);
-
-  font-size:12px;
-}
-
-
-/* =====================================================
-   CRACKER
-===================================================== */
-
-.cracker{
-  position:absolute;
-
-  z-index:5;
-
-  pointer-events:none;
-
-  font-size:30px;
-
-  animation:
-    crackerPop
-    1.5s
-    ease-out
-    forwards;
-}
-
-
-/* =====================================================
-   ANIMATIONS
-===================================================== */
-
-@keyframes diyaPulse{
-
-  from{
-    transform:
-      scale(.92)
-      rotate(-2deg);
-  }
-
-  to{
-    transform:
-      scale(1.08)
-      rotate(2deg);
-  }
-
-}
-
-@keyframes titlePop{
-
-  from{
-    transform:scale(.45);
-
-    opacity:0;
-  }
-
-  to{
-    transform:scale(1);
-
-    opacity:1;
-  }
-
-}
-
-@keyframes buttonIn{
-
-  to{
-    transform:translateY(0);
-
-    opacity:1;
-  }
-
-}
-
-@keyframes crackerPop{
-
-  0%{
-    transform:
-      scale(.2)
-      rotate(-15deg);
-
-    opacity:0;
-  }
-
-  20%{
-    opacity:1;
-  }
-
-  100%{
-    transform:
-      scale(1.4)
-      rotate(15deg);
-
-    opacity:0;
-  }
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width:560px){
-
-  .page{
-    width:94vw;
-
-    margin-top:10px;
-  }
-
-  .hero-copy h1{
-    font-size:24px;
-  }
-
-  .hero-copy .lead{
-    font-size:16px;
-  }
-
-  .form-inner{
-    padding:18px;
-  }
-
-  .photo-actions{
-    grid-template-columns:1fr;
-  }
-
-  .success-diya{
-    font-size:60px;
-  }
-
-  .success-message{
-    font-size:14px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>SiVMOR Diwali Gift</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, #fff8df 0%, #fff1c4 35%, #fff 75%);
+      color: #222;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+
+    /* =========================
+       HEADER BANNER
+    ========================== */
+
+    .banner-wrapper {
+      width: 100%;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .banner-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 130px;
+      object-fit: cover;
+    }
+
+    .fallback-banner {
+      display: none;
+      width: 100%;
+      min-height: 190px;
+      padding: 25px 15px;
+      text-align: center;
+      color: white;
+      background:
+        radial-gradient(circle at center, #ffb300, #d62828 45%, #650000);
+    }
+
+    .fallback-banner .logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .fallback-banner .big {
+      font-size: 25px;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .fallback-banner .small {
+      margin-top: 12px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       INTRO
+    ========================== */
+
+    .intro {
+      text-align: center;
+      padding: 18px 18px 8px;
+    }
+
+    .intro h1 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 900;
+      color: #b30000;
+    }
+
+    .intro p {
+      margin: 5px 0;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    /* =========================
+       FORM CARD
+    ========================== */
+
+    .form-card {
+      margin: 15px;
+      padding: 20px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 22px;
+      box-shadow:
+        0 8px 35px rgba(0,0,0,0.12),
+        0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .field {
+      margin-bottom: 17px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #333;
+    }
+
+    .required {
+      color: #d00000;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #d6d6d6;
+      border-radius: 13px;
+      padding: 14px 13px;
+      font-size: 16px;
+      outline: none;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: #e49b00;
+      box-shadow: 0 0 0 3px rgba(228,155,0,0.12);
+    }
+
+    .field textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .hint {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #777;
+    }
+
+    /* =========================
+       PHOTO AREA
+    ========================== */
+
+    .photo-box {
+      border: 2px dashed #e0a100;
+      border-radius: 17px;
+      padding: 15px;
+      background: #fffaf0;
+      text-align: center;
+    }
+
+    .photo-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 5px;
+    }
+
+    .photo-btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 13px 10px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      background: #fff;
+      border: 1px solid #e2b63e;
+      color: #7b5100;
+    }
+
+    .photo-btn:active {
+      transform: scale(0.98);
+    }
+
+    #fileInput {
+      display: none;
+    }
+
+    #cameraInput {
+      display: none;
+    }
+
+    .preview-wrapper {
+      display: none;
+      margin-top: 14px;
+      position: relative;
+    }
+
+    #photoPreview {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: #eee;
+      display: block;
+    }
+
+    .remove-photo {
+      margin-top: 9px;
+      border: 0;
+      border-radius: 10px;
+      padding: 9px 14px;
+      font-weight: 700;
+      color: #fff;
+      background: #d62828;
+      cursor: pointer;
+    }
+
+    /* =========================
+       SUBMIT
+    ========================== */
+
+    .submit-btn {
+      width: 100%;
+      border: 0;
+      border-radius: 15px;
+      padding: 16px;
+      margin-top: 8px;
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      cursor: pointer;
+      background:
+        linear-gradient(135deg, #ff9d00, #e01b00);
+      box-shadow: 0 7px 18px rgba(224,27,0,0.25);
+    }
+
+    .submit-btn:active {
+      transform: scale(0.985);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.8;
+      cursor: default;
+    }
+
+    .privacy-note {
+      text-align: center;
+      margin-top: 12px;
+      color: #777;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    /* =========================
+       INSTAGRAM
+    ========================== */
+
+    .instagram-area {
+      text-align: center;
+      padding: 5px 15px 25px;
+    }
+
+    .instagram-area p {
+      margin: 0 0 9px;
+      font-weight: 700;
+      color: #555;
+    }
+
+    .instagram-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 900;
+      background:
+        linear-gradient(
+          135deg,
+          #833ab4,
+          #fd1d1d,
+          #fcb045
+        );
+      box-shadow: 0 5px 16px rgba(131,58,180,0.22);
+    }
+
+    .instagram-icon {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    /* =========================
+       HIDDEN IFRAME
+    ========================== */
+
+    #appsScriptFrame {
+      display: none;
+      width: 0;
+      height: 0;
+      border: 0;
+      position: absolute;
+      left: -99999px;
+    }
+
+    /* =========================
+       CELEBRATION SCREEN
+    ========================== */
+
+    #celebration {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(255,180,0,0.98) 0%,
+          rgba(160,0,0,0.98) 38%,
+          rgba(20,0,0,1) 100%
+        );
+    }
+
+    #fireworksCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .celebration-content {
+      position: absolute;
+      z-index: 10;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 25px;
+      pointer-events: none;
+    }
+
+    .celebration-diya {
+      font-size: 70px;
+      filter:
+        drop-shadow(0 0 12px #fff)
+        drop-shadow(0 0 30px #ff9d00);
+      animation: diyaPulse 1s infinite alternate;
+    }
+
+    .celebration-title {
+      margin-top: 10px;
+      font-size: clamp(32px, 9vw, 62px);
+      font-weight: 1000;
+      line-height: 1.05;
+      color: #fff;
+      text-shadow:
+        0 0 8px #fff,
+        0 0 20px #ffd000,
+        0 0 40px #ff6500;
+      animation: titlePop 0.8s ease-out;
+    }
+
+    .celebration-subtitle {
+      margin-top: 15px;
+      font-size: clamp(18px, 5vw, 28px);
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 0 15px #ffcc00;
+    }
+
+    .celebration-message {
+      margin-top: 10px;
+      max-width: 500px;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #fff8dc;
+    }
+
+    .celebration-follow {
+      pointer-events: auto;
+      margin-top: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 22px;
+      border-radius: 15px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 900;
+      background:
+        linear-gradient(
+          135deg,
+          #833ab4,
+          #fd1d1d,
+          #fcb045
+        );
+      box-shadow:
+        0 0 20px rgba(255,255,255,0.25),
+        0 7px 25px rgba(0,0,0,0.3);
+    }
+
+    .celebration-close {
+      pointer-events: auto;
+      margin-top: 14px;
+      border: 1px solid rgba(255,255,255,0.45);
+      background: rgba(0,0,0,0.22);
+      color: #fff;
+      border-radius: 12px;
+      padding: 9px 18px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @keyframes diyaPulse {
+      from {
+        transform: scale(0.92);
+      }
+      to {
+        transform: scale(1.08);
+      }
+    }
+
+    @keyframes titlePop {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      70% {
+        transform: scale(1.08);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* =========================
+       FLOATING CRACKERS
+    ========================== */
+
+    .cracker {
+      position: absolute;
+      z-index: 5;
+      font-size: 28px;
+      animation: crackerFly 2.5s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes crackerFly {
+      0% {
+        opacity: 0;
+        transform: translateY(80px) scale(0.3) rotate(0deg);
+      }
+
+      15% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform:
+          translateY(-90vh)
+          scale(1.5)
+          rotate(720deg);
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 480px) {
+      .form-card {
+        margin: 12px;
+        padding: 16px;
+      }
+
+      .intro h1 {
+        font-size: 23px;
+      }
+
+      .photo-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .celebration-diya {
+        font-size: 60px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <div class="page">
 
-<!-- =====================================================
-     MAIN PAGE
-===================================================== -->
+    <!-- =========================
+         BANNER
+    ========================== -->
 
-<main class="page">
-
-
-  <!-- ===================================================
-       HEADER
-  ==================================================== -->
-
-  <section class="hero">
-
-    <div class="hero-image-area">
-
-      <!--
-        Google Drive image.
-
-        IMPORTANT:
-        Drive file must be:
-        Anyone with the link -> Viewer
-      -->
+    <div class="banner-wrapper">
 
       <img
-        id="headerImage"
-        class="hero-image"
-        alt="SiVMOR Diwali Gift"
+        id="bannerImage"
+        class="banner-img"
         src="https://drive.google.com/thumbnail?id=17KUZk9cWiBPTdcgRs4s3iJ-bKZDN2Ax4&sz=w2000"
+        alt="SiVMOR Diwali Gift"
       >
 
-
-      <!--
-        Fallback if Drive blocks image.
-      -->
-
-      <div
-        id="heroFallback"
-        class="hero-fallback"
-      >
-
-        <div class="hero-fallback-logo">
-          SiVMOR GADGETS
-        </div>
-
-        <div class="hero-fallback-main">
+      <div id="fallbackBanner" class="fallback-banner">
+        <div class="logo">SiVMOR GADGETS</div>
+        <div class="big">
           कुल ₹1 करोड़ तक के उपहार
         </div>
-
-        <div class="hero-fallback-sub">
+        <div class="small">
           Assured Gifts + Lucky Draw
         </div>
-
       </div>
 
     </div>
 
+    <!-- =========================
+         INTRO
+    ========================== -->
 
-    <!-- TEXT BELOW IMAGE -->
+    <div class="intro">
 
-    <div class="hero-copy">
+      <h1>SiVMOR DIWALI GIFT</h1>
 
-      <h1>
-        SiVMOR DIWALI GIFT
-      </h1>
-
-      <p class="lead">
+      <p>
         🪔 Celebrate the Festival of Lights with SiVMOR!
       </p>
 
-      <p class="sub">
-        Spread joy, share happiness, &amp; celebrate together
+      <p>
+        Spread joy, share happiness, & celebrate together
         with thoughtful Diwali gifts. ❤️ 🌟
       </p>
 
     </div>
 
-  </section>
+    <!-- =========================
+         FORM
+    ========================== -->
 
+    <div class="form-card">
 
-
-  <!-- ===================================================
-       FORM
-  ==================================================== -->
-
-  <section class="card">
-
-    <div class="card-top"></div>
-
-
-    <div class="form-inner">
-
-      <h2 class="section-title">
-        Customer Details
-      </h2>
-
-      <p class="section-sub">
-        Please fill in your details and submit your Diwali gift entry.
-      </p>
-
-
-      <form
-        id="giftForm"
-        novalidate
-      >
-
+      <form id="customerForm" novalidate>
 
         <!-- NAME -->
 
         <div class="field">
 
           <label for="name">
-            Name
-            <span class="required">*</span>
+            Name <span class="required">*</span>
           </label>
 
           <input
             id="name"
             name="name"
             type="text"
-            maxlength="100"
-            autocomplete="name"
             placeholder="Enter your name"
+            autocomplete="name"
             required
           >
 
         </div>
-
 
         <!-- MOBILE -->
 
         <div class="field">
 
           <label for="mobile">
-            Mobile No.
-            <span class="required">*</span>
+            Mobile No. <span class="required">*</span>
           </label>
 
           <input
@@ -1079,1972 +607,1235 @@ input.invalid{
             type="tel"
             inputmode="numeric"
             maxlength="10"
-            autocomplete="tel"
             placeholder="10 digit mobile number"
+            autocomplete="tel"
             required
           >
 
           <div class="hint">
-            Only exactly 10 digits are allowed.
+            Enter exactly 10 digits.
           </div>
 
         </div>
-
 
         <!-- INVOICE -->
 
         <div class="field">
 
           <label for="invoice">
-            Invoice No.
-            <span class="required">*</span>
+            Invoice No. <span class="required">*</span>
           </label>
 
           <input
             id="invoice"
             name="invoice"
-            type="text"
+            type="number"
+            min="1"
+            max="9999"
+            step="1"
             inputmode="numeric"
-            maxlength="4"
             placeholder="1 to 9999"
             required
           >
 
-          <div class="hint">
-            Maximum invoice number: 9999.
-          </div>
-
         </div>
-
 
         <!-- STORE -->
 
         <div class="field">
 
           <label for="storeName">
-            Store Name
-            <span class="required">*</span>
+            Store Name <span class="required">*</span>
           </label>
 
           <input
             id="storeName"
             name="storeName"
             type="text"
-            maxlength="200"
             placeholder="Enter store name"
             required
           >
 
         </div>
 
-
         <!-- IMEI -->
 
         <div class="field">
 
           <label for="imei">
-            IMEI / S.R NO
-            <span class="required">*</span>
+            IMEI / S.R NO <span class="required">*</span>
           </label>
 
-          <input
+          <textarea
             id="imei"
             name="imei"
-            type="text"
-            maxlength="200"
             placeholder="Enter IMEI / S.R NO"
             required
-          >
+          ></textarea>
 
         </div>
-
 
         <!-- PHOTO -->
 
         <div class="field">
 
           <label>
-            Customer Photo
+            Photo <span class="required">*</span>
           </label>
-
 
           <div class="photo-box">
 
+            <div style="font-size:38px;">
+              📷
+            </div>
 
-            <div class="photo-actions">
+            <div style="font-weight:800; margin-top:5px;">
+              Upload Customer Photo
+            </div>
 
-              <button
-                type="button"
-                class="photo-btn primary"
-                id="cameraBtn"
-              >
-                📷 Open Camera
-              </button>
+            <div
+              style="
+                margin-top:5px;
+                font-size:12px;
+                color:#777;
+              "
+            >
+              Original photo will be uploaded. No image compression.
+            </div>
 
+            <div class="photo-buttons">
 
               <button
                 type="button"
                 class="photo-btn"
-                id="galleryBtn"
+                id="cameraButton"
+              >
+                📸 Open Camera
+              </button>
+
+              <button
+                type="button"
+                class="photo-btn"
+                id="galleryButton"
               >
                 🖼️ Gallery / File
               </button>
 
             </div>
 
-
             <!-- CAMERA -->
-
             <input
               id="cameraInput"
               type="file"
               accept="image/*"
               capture="environment"
-              hidden
             >
-
 
             <!-- GALLERY -->
-
             <input
-              id="galleryInput"
+              id="fileInput"
               type="file"
               accept="image/*"
-              hidden
             >
 
-
-            <!-- PREVIEW -->
-
             <div
-              class="photo-preview"
-              id="photoPreview"
+              id="previewWrapper"
+              class="preview-wrapper"
             >
 
               <img
-                id="previewImage"
-                alt="Selected customer photo"
+                id="photoPreview"
+                alt="Selected photo"
               >
-
 
               <button
                 type="button"
-                class="remove-photo"
                 id="removePhoto"
+                class="remove-photo"
               >
-                ×
+                ❌ Remove Photo
               </button>
 
-            </div>
-
-
-            <div class="hint">
-              You can click a live camera photo or choose a photo from the gallery.
             </div>
 
           </div>
 
         </div>
 
-
         <!-- SUBMIT -->
 
         <button
-          class="submit"
           id="submitBtn"
           type="submit"
+          class="submit-btn"
         >
-          🎁 Submit Diwali Gift Entry
+          🎁 Submit & Celebrate Diwali
         </button>
 
-
-        <!-- STATUS -->
-
-        <div
-          id="status"
-          class="status"
-        ></div>
-
-
-        <div class="privacy">
-          By submitting, your details are recorded for the
-          SiVMOR Diwali Gift campaign.
+        <div class="privacy-note">
+          Your submitted details will be securely recorded for the SiVMOR Diwali Gift campaign.
         </div>
 
       </form>
 
     </div>
 
-  </section>
+    <!-- =========================
+         INSTAGRAM
+    ========================== -->
 
-</main>
+    <div class="instagram-area">
 
+      <p>
+        Follow us for more updates ❤️
+      </p>
 
-
-<!-- =====================================================
-     HIDDEN APPS SCRIPT IFRAME
-===================================================== -->
-
-<iframe
-  id="appsScriptFrame"
-  name="appsScriptFrame"
-  title="Apps Script submission"
-></iframe>
-
-
-
-<!-- =====================================================
-     DIWALI SUCCESS SCREEN
-===================================================== -->
-
-<div
-  id="celebration"
-  aria-hidden="true"
->
-
-
-  <canvas id="fireworks"></canvas>
-
-
-  <div class="success-content">
-
-
-    <div class="success-diya">
-      🪔
-    </div>
-
-
-    <div class="success-small">
-      SiVMOR ki taraf se
-    </div>
-
-
-    <div class="success-title">
-      Happy Diwali! 🎆
-    </div>
-
-
-    <div class="success-brand">
-      SiVMOR GADGETS
-    </div>
-
-
-    <div class="success-message">
-      Aapki entry successfully submit ho gayi hai!<br>
-      Khushiyon bhari Diwali aur bahut saari शुभकामनाएँ ❤️
-    </div>
-
-
-    <!-- INSTAGRAM -->
-
-    <a
-      class="instagram-btn"
-      href="https://www.instagram.com/sivmorgadgets/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-
-      <svg
-        class="instagram-logo"
-        viewBox="0 0 24 24"
-        fill="none"
+      <a
+        class="instagram-btn"
+        href="https://www.instagram.com/sivmorgadgets/"
+        target="_blank"
+        rel="noopener noreferrer"
       >
 
-        <rect
-          x="3"
-          y="3"
-          width="18"
-          height="18"
-          rx="5"
-          stroke="white"
-          stroke-width="2"
-        />
+        <svg
+          class="instagram-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"
+          />
 
-        <circle
-          cx="12"
-          cy="12"
-          r="4"
-          stroke="white"
-          stroke-width="2"
-        />
+          <path
+            d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"
+          />
 
-        <circle
-          cx="17.4"
-          cy="6.7"
-          r="1.1"
-          fill="white"
-        />
+          <circle
+            cx="17.5"
+            cy="6.5"
+            r="1.25"
+          />
+        </svg>
 
-      </svg>
+        Follow Us on Instagram
 
+      </a>
 
-      Follow Us on Instagram
-
-    </a>
+    </div>
 
   </div>
 
 
-  <button
-    class="skip-btn"
-    id="closeCelebration"
-  >
-    Close ✕
-  </button>
+  <!-- =========================
+       HIDDEN APPS SCRIPT IFRAME
+  ========================== -->
 
-</div>
+  <iframe
+    id="appsScriptFrame"
+    name="appsScriptFrame"
+  ></iframe>
 
 
+  <!-- =========================
+       CELEBRATION
+  ========================== -->
 
-<script>
+  <div id="celebration">
 
-/* =====================================================
-   CONFIGURATION
-===================================================== */
+    <canvas id="fireworksCanvas"></canvas>
 
+    <div class="celebration-content">
 
-/*
- * YOUR APPS SCRIPT WEB APP URL
- */
+      <div class="celebration-diya">
+        🪔
+      </div>
 
-const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzgBKUyiobRBCJGLIITYLLliH1CDlirIXbcX8Av8p0htEiWxIVTqCLtJYDULR8dmrRr/exec";
+      <div class="celebration-title">
+        Happy Diwali!
+      </div>
 
+      <div class="celebration-subtitle">
+        SIVMOR ki taraf se
+      </div>
 
-/*
- * YOUR INSTAGRAM
- */
+      <div class="celebration-message">
+        ✨ Aapka response submit ho gaya hai! ✨
+        <br>
+        Wishing you happiness, prosperity & lots of joy.
+      </div>
 
-const INSTAGRAM_URL =
-  "https://www.instagram.com/sivmorgadgets/";
+      <a
+        class="celebration-follow"
+        href="https://www.instagram.com/sivmorgadgets/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
 
+        <svg
+          class="instagram-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"
+          />
 
+          <path
+            d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"
+          />
 
-/* =====================================================
-   HEADER IMAGE
-===================================================== */
+          <circle
+            cx="17.5"
+            cy="6.5"
+            r="1.25"
+          />
+        </svg>
 
-const headerImage =
-  document.getElementById("headerImage");
+        Follow Us on Instagram
 
-const heroFallback =
-  document.getElementById("heroFallback");
+      </a>
 
+      <button
+        id="closeCelebration"
+        class="celebration-close"
+      >
+        Continue
+      </button>
 
-let headerAttempt = 0;
+    </div>
 
+  </div>
 
-/*
- * Drive can sometimes block one type of image URL.
- * Try multiple formats before fallback.
- */
 
-const headerSources = [
+  <script>
 
-  "https://drive.google.com/thumbnail?id=17KUZk9cWiBPTdcgRs4s3iJ-bKZDN2Ax4&sz=w2000",
+    /* =========================================================
+       CONFIGURATION
+    ========================================================== */
 
-  "https://drive.google.com/uc?export=view&id=17KUZk9cWiBPTdcgRs4s3iJ-bKZDN2Ax4",
+    const APPS_SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbzgBKUyiobRBCJGLIITYLLliH1CDlirIXbcX8Av8p0htEiUXIVTqCLtJYDULR8dmrRr/exec";
 
-  "https://drive.google.com/thumbnail?id=17KUZk9cWiBPTdcgRs4s3iJ-bKZDN2Ax4&sz=w1600"
+    /*
+      IMPORTANT:
+      Above URL should be your exact Apps Script deployment URL.
 
-];
+      If your current URL is:
+      https://script.google.com/macros/s/AKfycbzgBKUyiobRBCJGLIITYLLliH1CDlirIXbcX8Av8p0htEiWxIVTqCLtJYDULR8dmrRr/exec
 
+      then use that exact URL.
+    */
 
-headerImage.addEventListener(
-  "error",
-  function(){
+    const FORM = document.getElementById("customerForm");
 
-    headerAttempt++;
+    const nameInput =
+      document.getElementById("name");
 
-    if(
-      headerAttempt <
-      headerSources.length
-    ){
+    const mobileInput =
+      document.getElementById("mobile");
 
-      headerImage.src =
-        headerSources[headerAttempt];
+    const invoiceInput =
+      document.getElementById("invoice");
 
-    }else{
+    const storeInput =
+      document.getElementById("storeName");
 
-      headerImage.style.display =
-        "none";
+    const imeiInput =
+      document.getElementById("imei");
 
-      heroFallback.style.display =
-        "block";
+    const cameraInput =
+      document.getElementById("cameraInput");
 
-    }
+    const fileInput =
+      document.getElementById("fileInput");
 
-  }
-);
+    const cameraButton =
+      document.getElementById("cameraButton");
 
+    const galleryButton =
+      document.getElementById("galleryButton");
 
-/* =====================================================
-   ELEMENTS
-===================================================== */
+    const photoPreview =
+      document.getElementById("photoPreview");
 
-const form =
-  document.getElementById("giftForm");
+    const previewWrapper =
+      document.getElementById("previewWrapper");
 
-const nameInput =
-  document.getElementById("name");
+    const removePhoto =
+      document.getElementById("removePhoto");
 
-const mobileInput =
-  document.getElementById("mobile");
+    const submitBtn =
+      document.getElementById("submitBtn");
 
-const invoiceInput =
-  document.getElementById("invoice");
+    const celebration =
+      document.getElementById("celebration");
 
-const storeInput =
-  document.getElementById("storeName");
+    const closeCelebration =
+      document.getElementById("closeCelebration");
 
-const imeiInput =
-  document.getElementById("imei");
+    let selectedPhotoData = "";
+    let selectedPhotoName = "";
+    let submissionPending = false;
 
-const cameraBtn =
-  document.getElementById("cameraBtn");
 
-const galleryBtn =
-  document.getElementById("galleryBtn");
+    /* =========================================================
+       BANNER FALLBACK
+    ========================================================== */
 
-const cameraInput =
-  document.getElementById("cameraInput");
+    const bannerImage =
+      document.getElementById("bannerImage");
 
-const galleryInput =
-  document.getElementById("galleryInput");
+    const fallbackBanner =
+      document.getElementById("fallbackBanner");
 
-const photoPreview =
-  document.getElementById("photoPreview");
+    bannerImage.addEventListener("error", function() {
+      bannerImage.style.display = "none";
+      fallbackBanner.style.display = "block";
+    });
 
-const previewImage =
-  document.getElementById("previewImage");
 
-const removePhoto =
-  document.getElementById("removePhoto");
+    /* =========================================================
+       CAMERA / GALLERY
+    ========================================================== */
 
-const submitBtn =
-  document.getElementById("submitBtn");
+    cameraButton.addEventListener("click", function() {
+      cameraInput.click();
+    });
 
-const statusBox =
-  document.getElementById("status");
+    galleryButton.addEventListener("click", function() {
+      fileInput.click();
+    });
 
-const celebration =
-  document.getElementById("celebration");
+    cameraInput.addEventListener("change", function() {
 
-const appsScriptFrame =
-  document.getElementById("appsScriptFrame");
-
-
-let selectedPhotoData = "";
-
-let selectedPhotoName =
-  "customer-photo.jpg";
-
-let submissionPending = false;
-
-let submissionTimeout = null;
-
-
-/* =====================================================
-   MOBILE VALIDATION
-===================================================== */
-
-mobileInput.addEventListener(
-  "input",
-  function(){
-
-    this.value =
-      this.value
-        .replace(/\D/g,"")
-        .slice(0,10);
-
-    this.classList.remove(
-      "invalid"
-    );
-
-  }
-);
-
-
-/* =====================================================
-   INVOICE VALIDATION
-===================================================== */
-
-invoiceInput.addEventListener(
-  "input",
-  function(){
-
-    this.value =
-      this.value
-        .replace(/\D/g,"")
-        .slice(0,4);
-
-    this.classList.remove(
-      "invalid"
-    );
-
-  }
-);
-
-
-/* =====================================================
-   CLEAR INVALID
-===================================================== */
-
-[
-  nameInput,
-  storeInput,
-  imeiInput
-].forEach(
-  input => {
-
-    input.addEventListener(
-      "input",
-      function(){
-
-        if(this.value.trim()){
-          this.classList.remove(
-            "invalid"
-          );
-        }
-
-      }
-    );
-
-  }
-);
-
-
-/* =====================================================
-   STATUS
-===================================================== */
-
-function showError(message){
-
-  statusBox.textContent =
-    message;
-
-  statusBox.className =
-    "status error";
-
-}
-
-
-function showSuccess(message){
-
-  statusBox.textContent =
-    message;
-
-  statusBox.className =
-    "status success";
-
-}
-
-
-/* =====================================================
-   VALIDATE FORM
-===================================================== */
-
-function validateForm(){
-
-  let valid = true;
-
-
-  const requiredFields = [
-
-    nameInput,
-    mobileInput,
-    invoiceInput,
-    storeInput,
-    imeiInput
-
-  ];
-
-
-  requiredFields.forEach(
-    input => {
-
-      if(!input.value.trim()){
-
-        input.classList.add(
-          "invalid"
-        );
-
-        valid = false;
-
-      }else{
-
-        input.classList.remove(
-          "invalid"
-        );
-
+      if (cameraInput.files && cameraInput.files[0]) {
+        handlePhoto(cameraInput.files[0]);
       }
 
-    }
-  );
+    });
 
+    fileInput.addEventListener("change", function() {
 
-  /*
-   * EXACT 10 DIGITS
-   */
+      if (fileInput.files && fileInput.files[0]) {
+        handlePhoto(fileInput.files[0]);
+      }
 
-  if(
-    !/^\d{10}$/.test(
-      mobileInput.value
-    )
-  ){
+    });
 
-    mobileInput.classList.add(
-      "invalid"
-    );
 
-    valid = false;
+    /* =========================================================
+       PHOTO HANDLER
+       
+       NO SIZE LIMIT
+       NO COMPRESSION
+       NO RESIZE
+    ========================================================== */
 
-  }
+    function handlePhoto(file) {
 
+      if (!file) {
+        return;
+      }
 
-  /*
-   * INVOICE 1-9999
-   */
+      if (!file.type || !file.type.startsWith("image/")) {
 
-  const invoice =
-    Number(invoiceInput.value);
+        alert("Please select an image file.");
 
+        return;
+      }
 
-  if(
-    !/^[1-9]\d{0,3}$/.test(
-      invoiceInput.value
-    ) ||
-    invoice < 1 ||
-    invoice > 9999
-  ){
+      selectedPhotoName =
+        file.name || "customer-photo.jpg";
 
-    invoiceInput.classList.add(
-      "invalid"
-    );
+      /*
+        IMPORTANT:
+        FileReader is used directly.
 
-    valid = false;
-
-  }
-
-
-  if(!valid){
-
-    showError(
-      "Please check all required fields. Mobile must be exactly 10 digits and Invoice must be 1–9999."
-    );
-
-  }
-
-
-  return valid;
-
-}
-
-
-/* =====================================================
-   CAMERA / GALLERY
-===================================================== */
-
-cameraBtn.addEventListener(
-  "click",
-  function(){
-
-    cameraInput.click();
-
-  }
-);
-
-
-galleryBtn.addEventListener(
-  "click",
-  function(){
-
-    galleryInput.click();
-
-  }
-);
-
-
-cameraInput.addEventListener(
-  "change",
-  function(e){
-
-    handlePhoto(
-      e.target.files[0]
-    );
-
-  }
-);
-
-
-galleryInput.addEventListener(
-  "change",
-  function(e){
-
-    handlePhoto(
-      e.target.files[0]
-    );
-
-  }
-);
-
-
-/* =====================================================
-   REMOVE PHOTO
-===================================================== */
-
-removePhoto.addEventListener(
-  "click",
-  function(){
-
-    selectedPhotoData = "";
-
-    selectedPhotoName =
-      "customer-photo.jpg";
-
-    previewImage.src = "";
-
-    photoPreview.style.display =
-      "none";
-
-    cameraInput.value = "";
-
-    galleryInput.value = "";
-
-  }
-);
-
-
-/* =====================================================
-   HANDLE PHOTO
-===================================================== */
-
-async function handlePhoto(file){
-
-  if(!file){
-    return;
-  }
-
-
-  if(!file.type.startsWith("image/")){
-
-    showError(
-      "Please select an image file only."
-    );
-
-    return;
-
-  }
-
-
-  selectedPhotoName =
-    file.name ||
-    "customer-photo.jpg";
-
-
-  try{
-
-    selectedPhotoData =
-      await compressImage(
-        file,
-        1280,
-        .76
-      );
-
-
-    previewImage.src =
-      selectedPhotoData;
-
-
-    photoPreview.style.display =
-      "block";
-
-
-    statusBox.style.display =
-      "none";
-
-
-    statusBox.className =
-      "status";
-
-
-  }catch(error){
-
-    console.error(error);
-
-    showError(
-      "Photo process nahi ho paaya. Please try another image."
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   COMPRESS IMAGE
-===================================================== */
-
-function compressImage(
-  file,
-  maxSide,
-  quality
-){
-
-  return new Promise(
-    (resolve,reject) => {
+        There is:
+        - NO file size validation
+        - NO compression
+        - NO resize
+        - NO quality reduction
+      */
 
       const reader =
         new FileReader();
 
+      reader.onload = function(event) {
 
-      reader.onerror =
-        () => reject(
-          new Error(
-            "File read failed"
-          )
-        );
+        selectedPhotoData =
+          event.target.result;
 
+        photoPreview.src =
+          selectedPhotoData;
 
-      reader.onload =
-        () => {
+        previewWrapper.style.display =
+          "block";
 
-          const img =
-            new Image();
+      };
 
+      reader.onerror = function() {
 
-          img.onerror =
-            () => reject(
-              new Error(
-                "Image load failed"
-              )
-            );
+        alert("Photo read nahi ho paayi. Please try again.");
 
+        selectedPhotoData = "";
+        selectedPhotoName = "";
 
-          img.onload =
-            () => {
-
-              let width =
-                img.naturalWidth;
-
-              let height =
-                img.naturalHeight;
-
-
-              if(
-                width > maxSide ||
-                height > maxSide
-              ){
-
-                const scale =
-                  Math.min(
-                    maxSide / width,
-                    maxSide / height
-                  );
-
-
-                width =
-                  Math.round(
-                    width * scale
-                  );
-
-
-                height =
-                  Math.round(
-                    height * scale
-                  );
-
-              }
-
-
-              const canvas =
-                document.createElement(
-                  "canvas"
-                );
-
-
-              canvas.width =
-                width;
-
-              canvas.height =
-                height;
-
-
-              const context =
-                canvas.getContext(
-                  "2d",
-                  {
-                    alpha:false
-                  }
-                );
-
-
-              context.fillStyle =
-                "#ffffff";
-
-
-              context.fillRect(
-                0,
-                0,
-                width,
-                height
-              );
-
-
-              context.drawImage(
-                img,
-                0,
-                0,
-                width,
-                height
-              );
-
-
-              resolve(
-                canvas.toDataURL(
-                  "image/jpeg",
-                  quality
-                )
-              );
-
-            };
-
-
-          img.src =
-            reader.result;
-
-        };
-
+      };
 
       reader.readAsDataURL(file);
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   SUBMIT FORM
-===================================================== */
-
-form.addEventListener(
-  "submit",
-  function(event){
-
-    event.preventDefault();
-
-
-    if(submissionPending){
-      return;
     }
 
 
-    statusBox.style.display =
-      "none";
+    /* =========================================================
+       REMOVE PHOTO
+    ========================================================== */
 
-    statusBox.className =
-      "status";
+    removePhoto.addEventListener("click", function() {
 
+      selectedPhotoData = "";
+      selectedPhotoName = "";
 
-    if(!validateForm()){
-      return;
-    }
+      photoPreview.removeAttribute("src");
 
+      previewWrapper.style.display =
+        "none";
 
-    submissionPending = true;
-
-
-    submitBtn.disabled =
-      true;
-
-
-    submitBtn.textContent =
-      "⏳ Submitting...";
-
-
-    /*
-     * Create hidden form.
-     *
-     * This sends a normal POST to Apps Script.
-     * It avoids CORS/no-cors response problems.
-     */
-
-    const submitForm =
-      document.createElement(
-        "form"
-      );
-
-
-    submitForm.method =
-      "POST";
-
-
-    submitForm.action =
-      APPS_SCRIPT_URL;
-
-
-    submitForm.target =
-      "appsScriptFrame";
-
-
-    submitForm.style.display =
-      "none";
-
-
-    /*
-     * Add field helper
-     */
-
-    function addField(
-      name,
-      value
-    ){
-
-      const input =
-        document.createElement(
-          "input"
-        );
-
-
-      input.type =
-        "hidden";
-
-
-      input.name =
-        name;
-
-
-      input.value =
-        value;
-
-
-      submitForm.appendChild(
-        input
-      );
-
-    }
-
-
-    addField(
-      "name",
-      nameInput.value.trim()
-    );
-
-
-    addField(
-      "mobile",
-      mobileInput.value.trim()
-    );
-
-
-    addField(
-      "invoice",
-      invoiceInput.value.trim()
-    );
-
-
-    addField(
-      "storeName",
-      storeInput.value.trim()
-    );
-
-
-    addField(
-      "imei",
-      imeiInput.value.trim()
-    );
-
-
-    addField(
-      "photoData",
-      selectedPhotoData
-    );
-
-
-    addField(
-      "photoName",
-      selectedPhotoName
-    );
-
-
-    document.body.appendChild(
-      submitForm
-    );
-
-
-    /*
-     * Timeout.
-     *
-     * If Apps Script doesn't respond,
-     * don't keep button stuck forever.
-     */
-
-    clearTimeout(
-      submissionTimeout
-    );
-
-
-    submissionTimeout =
-      setTimeout(
-        function(){
-
-          if(submissionPending){
-
-            submissionPending =
-              false;
-
-            submitBtn.disabled =
-              false;
-
-            submitBtn.textContent =
-              "🎁 Submit Diwali Gift Entry";
-
-
-            showError(
-              "Server response nahi mila. Please check your internet connection and try again."
-            );
-
-          }
-
-        },
-        30000
-      );
-
-
-    /*
-     * Submit
-     */
-
-    submitForm.submit();
-
-
-    /*
-     * Remove temporary form
-     * after browser has submitted it.
-     */
-
-    setTimeout(
-      function(){
-
-        submitForm.remove();
-
-      },
-      2000
-    );
-
-  }
-);
-
-
-/* =====================================================
-   APPS SCRIPT RESPONSE
-===================================================== */
-
-window.addEventListener(
-  "message",
-  function(event){
-
-    /*
-     * We intentionally do not hard-block origin here
-     * because Apps Script deployment origin can vary.
-     *
-     * We only accept our unique message type.
-     */
-
-    if(
-      !event.data ||
-      event.data.type !==
-      "SIVMOR_FORM_RESULT"
-    ){
-
-      return;
-
-    }
-
-
-    clearTimeout(
-      submissionTimeout
-    );
-
-
-    submissionPending =
-      false;
-
-
-    /*
-     * SUCCESS
-     */
-
-    if(
-      event.data.status ===
-      "SUCCESS"
-    ){
-
-      resetForm();
-
-
-      /*
-       * Show fireworks ONLY after
-       * Apps Script says SUCCESS.
-       */
-
-      launchCelebration();
-
-
-      return;
-
-    }
-
-
-    /*
-     * ERROR
-     */
-
-    submitBtn.disabled =
-      false;
-
-
-    submitBtn.textContent =
-      "🎁 Submit Diwali Gift Entry";
-
-
-    showError(
-      event.data.message ||
-      "Submission failed. Please try again."
-    );
-
-  }
-);
-
-
-/* =====================================================
-   RESET FORM
-===================================================== */
-
-function resetForm(){
-
-  form.reset();
-
-
-  selectedPhotoData =
-    "";
-
-  selectedPhotoName =
-    "customer-photo.jpg";
-
-
-  previewImage.src =
-    "";
-
-
-  photoPreview.style.display =
-    "none";
-
-
-  cameraInput.value =
-    "";
-
-  galleryInput.value =
-    "";
-
-
-  [
-    nameInput,
-    mobileInput,
-    invoiceInput,
-    storeInput,
-    imeiInput
-  ].forEach(
-    input => {
-
-      input.classList.remove(
-        "invalid"
-      );
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   FIREWORKS ENGINE
-===================================================== */
-
-const canvas =
-  document.getElementById(
-    "fireworks"
-  );
-
-const ctx =
-  canvas.getContext(
-    "2d"
-  );
-
-
-let fireworks = [];
-
-let particles = [];
-
-let animationId = null;
-
-
-/* =====================================================
-   CANVAS RESIZE
-===================================================== */
-
-function resizeCanvas(){
-
-  const dpr =
-    Math.min(
-      window.devicePixelRatio || 1,
-      2
-    );
-
-
-  canvas.width =
-    Math.floor(
-      window.innerWidth * dpr
-    );
-
-
-  canvas.height =
-    Math.floor(
-      window.innerHeight * dpr
-    );
-
-
-  canvas.style.width =
-    window.innerWidth + "px";
-
-
-  canvas.style.height =
-    window.innerHeight + "px";
-
-
-  ctx.setTransform(
-    dpr,
-    0,
-    0,
-    dpr,
-    0,
-    0
-  );
-
-}
-
-
-window.addEventListener(
-  "resize",
-  resizeCanvas
-);
-
-
-/* =====================================================
-   RANDOM
-===================================================== */
-
-function random(
-  min,
-  max
-){
-
-  return Math.random() *
-    (max - min) +
-    min;
-
-}
-
-
-/* =====================================================
-   LAUNCH FIREWORK
-===================================================== */
-
-function launchFirework(){
-
-  fireworks.push({
-
-    x:
-      random(
-        window.innerWidth * .12,
-        window.innerWidth * .88
-      ),
-
-    y:
-      window.innerHeight + 10,
-
-    targetY:
-      random(
-        window.innerHeight * .10,
-        window.innerHeight * .48
-      ),
-
-    vx:
-      random(
-        -.7,
-        .7
-      ),
-
-    vy:
-      random(
-        -12,
-        -8
-      ),
-
-    color:
-      `hsl(
-        ${Math.floor(random(0,360))}
-        100%
-        65%
-      )`,
-
-    trail:[]
-
-  });
-
-}
-
-
-/* =====================================================
-   EXPLODE
-===================================================== */
-
-function explode(firework){
-
-  const count =
-    Math.floor(
-      random(50,90)
-    );
-
-
-  for(
-    let i=0;
-    i<count;
-    i++
-  ){
-
-    const angle =
-      random(
-        0,
-        Math.PI * 2
-      );
-
-
-    const speed =
-      random(
-        2,
-        7.5
-      );
-
-
-    particles.push({
-
-      x:
-        firework.x,
-
-      y:
-        firework.y,
-
-      vx:
-        Math.cos(angle) *
-        speed,
-
-      vy:
-        Math.sin(angle) *
-        speed,
-
-      life:1,
-
-      decay:
-        random(
-          .012,
-          .024
-        ),
-
-      gravity:.055,
-
-      size:
-        random(
-          1.2,
-          3.2
-        ),
-
-      color:
-        firework.color
+      cameraInput.value = "";
+      fileInput.value = "";
 
     });
 
-  }
 
-}
+    /* =========================================================
+       MOBILE INPUT
+    ========================================================== */
 
+    mobileInput.addEventListener("input", function() {
 
-/* =====================================================
-   DRAW
-===================================================== */
+      this.value =
+        this.value
+          .replace(/\D/g, "")
+          .slice(0, 10);
 
-function drawFireworks(){
-
-  const width =
-    window.innerWidth;
-
-  const height =
-    window.innerHeight;
+    });
 
 
-  ctx.fillStyle =
-    "rgba(3,5,27,.19)";
+    /* =========================================================
+       INVOICE INPUT
+    ========================================================== */
+
+    invoiceInput.addEventListener("input", function() {
+
+      this.value =
+        this.value
+          .replace(/\D/g, "")
+          .slice(0, 4);
+
+    });
 
 
-  ctx.fillRect(
-    0,
-    0,
-    width,
-    height
-  );
+    /* =========================================================
+       FORM VALIDATION
+    ========================================================== */
+
+    function validateForm() {
+
+      const name =
+        nameInput.value.trim();
+
+      const mobile =
+        mobileInput.value.trim();
+
+      const invoice =
+        invoiceInput.value.trim();
+
+      const storeName =
+        storeInput.value.trim();
+
+      const imei =
+        imeiInput.value.trim();
 
 
-  /* -----------------------------------------------
-     ROCKETS
-  ------------------------------------------------ */
+      if (!name) {
 
-  fireworks.forEach(
-    (firework,index) => {
+        alert("Please enter Name.");
 
-      firework.trail.push({
+        nameInput.focus();
 
-        x:
-          firework.x,
-
-        y:
-          firework.y
-
-      });
-
-
-      if(
-        firework.trail.length >
-        7
-      ){
-
-        firework.trail.shift();
-
+        return false;
       }
 
 
-      firework.x +=
-        firework.vx;
+      if (!/^\d{10}$/.test(mobile)) {
 
+        alert("Mobile number exactly 10 digits ka hona chahiye.");
 
-      firework.y +=
-        firework.vy;
+        mobileInput.focus();
 
-
-      firework.vy +=
-        .13;
-
-
-      ctx.beginPath();
-
-
-      ctx.moveTo(
-        firework.trail[0]?.x ||
-        firework.x,
-
-        firework.trail[0]?.y ||
-        firework.y
-      );
-
-
-      for(
-        const point of
-        firework.trail
-      ){
-
-        ctx.lineTo(
-          point.x,
-          point.y
-        );
-
+        return false;
       }
 
 
-      ctx.strokeStyle =
-        firework.color;
+      if (
+        !/^[1-9]\d{0,3}$/.test(invoice) ||
+        Number(invoice) < 1 ||
+        Number(invoice) > 9999
+      ) {
 
+        alert("Invoice No. 1 se 9999 ke beech hona chahiye.");
 
-      ctx.lineWidth =
-        2;
+        invoiceInput.focus();
 
-
-      ctx.stroke();
-
-
-      ctx.beginPath();
-
-
-      ctx.arc(
-        firework.x,
-        firework.y,
-        2.5,
-        0,
-        Math.PI * 2
-      );
-
-
-      ctx.fillStyle =
-        "#fff";
-
-
-      ctx.fill();
-
-
-      if(
-        firework.y <=
-        firework.targetY
-        ||
-        firework.vy >= -1
-      ){
-
-        explode(
-          firework
-        );
-
-
-        fireworks.splice(
-          index,
-          1
-        );
-
+        return false;
       }
 
+
+      if (!storeName) {
+
+        alert("Please enter Store Name.");
+
+        storeInput.focus();
+
+        return false;
+      }
+
+
+      if (!imei) {
+
+        alert("Please enter IMEI / S.R NO.");
+
+        imeiInput.focus();
+
+        return false;
+      }
+
+
+      if (!selectedPhotoData) {
+
+        alert("Please upload customer photo.");
+
+        return false;
+      }
+
+
+      return true;
     }
-  );
 
 
-  /* -----------------------------------------------
-     PARTICLES
-  ------------------------------------------------ */
+    /* =========================================================
+       RESET FORM
+    ========================================================== */
 
-  particles.forEach(
-    (particle,index) => {
+    function resetForm() {
 
-      particle.x +=
-        particle.vx;
+      FORM.reset();
 
+      selectedPhotoData = "";
+      selectedPhotoName = "";
 
-      particle.y +=
-        particle.vy;
+      photoPreview.removeAttribute("src");
 
+      previewWrapper.style.display =
+        "none";
 
-      particle.vy +=
-        particle.gravity;
+      cameraInput.value = "";
+      fileInput.value = "";
 
+      submissionPending = false;
 
-      particle.vx *=
-        .985;
+      submitBtn.disabled = false;
 
-
-      particle.vy *=
-        .985;
-
-
-      particle.life -=
-        particle.decay;
+      submitBtn.textContent =
+        "🎁 Submit & Celebrate Diwali";
+    }
 
 
-      if(
-        particle.life <= 0
-      ){
+    /* =========================================================
+       SUBMIT
+       
+       VERY IMPORTANT:
+       We DO NOT WAIT for Apps Script response.
 
-        particles.splice(
-          index,
-          1
-        );
+       Customer ko immediately celebration milega.
+       
+       Backend request hidden iframe mein
+       background mein continue karegi.
+    ========================================================== */
 
+    FORM.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      if (submissionPending) {
         return;
-
       }
 
+      if (!validateForm()) {
+        return;
+      }
 
-      ctx.globalAlpha =
-        Math.max(
-          particle.life,
-          0
-        );
+      submissionPending = true;
 
+      submitBtn.disabled = true;
 
-      ctx.beginPath();
+      submitBtn.textContent =
+        "🎉 Submitted!";
 
 
-      ctx.arc(
-        particle.x,
-        particle.y,
-        particle.size,
-        0,
-        Math.PI * 2
-      );
+      /*
+        Create a temporary hidden POST form.
+      */
 
+      const submitForm =
+        document.createElement("form");
 
-      ctx.fillStyle =
-        particle.color;
+      submitForm.method =
+        "POST";
 
+      submitForm.action =
+        APPS_SCRIPT_URL;
 
-      ctx.fill();
+      submitForm.target =
+        "appsScriptFrame";
 
-    }
-  );
-
-
-  ctx.globalAlpha =
-    1;
-
-
-  animationId =
-    requestAnimationFrame(
-      drawFireworks
-    );
-
-}
-
-
-/* =====================================================
-   CRACKER EMOJIS
-===================================================== */
-
-function addCrackers(){
-
-  const symbols = [
-
-    "🧨",
-    "✨",
-    "🎇",
-    "⭐",
-    "💥"
-
-  ];
-
-
-  for(
-    let i=0;
-    i<22;
-    i++
-  ){
-
-    const element =
-      document.createElement(
-        "div"
-      );
-
-
-    element.className =
-      "cracker";
-
-
-    element.textContent =
-      symbols[
-        Math.floor(
-          Math.random() *
-          symbols.length
-        )
-      ];
-
-
-    element.style.left =
-      random(3,94) +
-      "vw";
-
-
-    element.style.top =
-      random(5,88) +
-      "vh";
-
-
-    element.style.animationDelay =
-      random(0,.9) +
-      "s";
-
-
-    celebration.appendChild(
-      element
-    );
-
-
-    setTimeout(
-      () => {
-
-        element.remove();
-
-      },
-      2300
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   CELEBRATION
-===================================================== */
-
-function launchCelebration(){
-
-  celebration.style.display =
-    "block";
-
-
-  celebration.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-
-  resizeCanvas();
-
-
-  fireworks = [];
-
-  particles = [];
-
-
-  if(animationId){
-
-    cancelAnimationFrame(
-      animationId
-    );
-
-  }
-
-
-  drawFireworks();
-
-
-  /*
-   * BIG OPENING FIREWORKS
-   */
-
-  for(
-    let i=0;
-    i<9;
-    i++
-  ){
-
-    setTimeout(
-      function(){
-
-        launchFirework();
-
-      },
-      i * 230
-    );
-
-  }
-
-
-  /*
-   * Crackers
-   */
-
-  addCrackers();
-
-}
-
-
-/* =====================================================
-   CONTINUOUS FIREWORKS
-===================================================== */
-
-setInterval(
-  function(){
-
-    if(
-      celebration.style.display ===
-      "block"
-    ){
-
-      launchFirework();
-
-    }
-
-  },
-  800
-);
-
-
-/* =====================================================
-   CLOSE CELEBRATION
-===================================================== */
-
-document
-  .getElementById(
-    "closeCelebration"
-  )
-  .addEventListener(
-    "click",
-    function(){
-
-      celebration.style.display =
+      submitForm.style.display =
         "none";
 
 
-      celebration.setAttribute(
-        "aria-hidden",
-        "true"
+      function addField(name, value) {
+
+        const input =
+          document.createElement("input");
+
+        input.type =
+          "hidden";
+
+        input.name =
+          name;
+
+        input.value =
+          value || "";
+
+        submitForm.appendChild(input);
+      }
+
+
+      addField(
+        "name",
+        nameInput.value.trim()
+      );
+
+      addField(
+        "mobile",
+        mobileInput.value.trim()
+      );
+
+      addField(
+        "invoice",
+        invoiceInput.value.trim()
+      );
+
+      addField(
+        "storeName",
+        storeInput.value.trim()
+      );
+
+      addField(
+        "imei",
+        imeiInput.value.trim()
+      );
+
+      /*
+        ORIGINAL PHOTO DATA.
+        No compression.
+      */
+
+      addField(
+        "photoData",
+        selectedPhotoData
+      );
+
+      addField(
+        "photoName",
+        selectedPhotoName
       );
 
 
-      if(animationId){
+      document.body.appendChild(
+        submitForm
+      );
 
-        cancelAnimationFrame(
-          animationId
+
+      /*
+        Send request to Apps Script.
+        Browser will handle it in hidden iframe.
+      */
+
+      submitForm.submit();
+
+
+      /*
+        CUSTOMER-FACING UI IS INSTANT.
+
+        We don't wait for Google Sheet
+        or Google Drive.
+      */
+
+      setTimeout(function() {
+
+        resetForm();
+
+        launchCelebration();
+
+
+        setTimeout(function() {
+
+          try {
+            submitForm.remove();
+          } catch (e) {}
+
+        }, 3000);
+
+      }, 80);
+
+    });
+
+
+    /* =========================================================
+       CELEBRATION
+    ========================================================== */
+
+    const canvas =
+      document.getElementById("fireworksCanvas");
+
+    const ctx =
+      canvas.getContext("2d");
+
+    let fireworks = [];
+    let particles = [];
+    let animationRunning = false;
+
+
+    function resizeCanvas() {
+
+      canvas.width =
+        window.innerWidth;
+
+      canvas.height =
+        window.innerHeight;
+
+    }
+
+
+    window.addEventListener(
+      "resize",
+      resizeCanvas
+    );
+
+
+    function random(min, max) {
+
+      return Math.random() *
+        (max - min) + min;
+
+    }
+
+
+    function createFirework() {
+
+      const x =
+        random(
+          canvas.width * 0.08,
+          canvas.width * 0.92
         );
 
-        animationId =
-          null;
+      const targetY =
+        random(
+          canvas.height * 0.12,
+          canvas.height * 0.55
+        );
+
+      fireworks.push({
+
+        x: x,
+
+        y: canvas.height + 10,
+
+        targetY: targetY,
+
+        speed: random(7, 12),
+
+        exploded: false
+
+      });
+
+    }
+
+
+    function explode(x, y) {
+
+      const count =
+        Math.floor(random(55, 100));
+
+      for (
+        let i = 0;
+        i < count;
+        i++
+      ) {
+
+        const angle =
+          Math.random() *
+          Math.PI * 2;
+
+        const speed =
+          random(2, 8);
+
+        particles.push({
+
+          x: x,
+
+          y: y,
+
+          vx:
+            Math.cos(angle) * speed,
+
+          vy:
+            Math.sin(angle) * speed,
+
+          life:
+            random(45, 100),
+
+          maxLife:
+            100,
+
+          size:
+            random(1.5, 4),
+
+          gravity:
+            0.045,
+
+          friction:
+            0.985
+
+        });
+
+      }
+
+    }
+
+
+    function animateFireworks() {
+
+      if (!animationRunning) {
+        return;
+      }
+
+      ctx.fillStyle =
+        "rgba(15, 0, 0, 0.20)";
+
+      ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+
+      /*
+        Launch fireworks
+      */
+
+      for (
+        let i = fireworks.length - 1;
+        i >= 0;
+        i--
+      ) {
+
+        const fw =
+          fireworks[i];
+
+        fw.y -= fw.speed;
+
+        ctx.beginPath();
+
+        ctx.arc(
+          fw.x,
+          fw.y,
+          2.5,
+          0,
+          Math.PI * 2
+        );
+
+        ctx.fillStyle =
+          "#fff";
+
+        ctx.shadowBlur =
+          12;
+
+        ctx.shadowColor =
+          "#ffd000";
+
+        ctx.fill();
+
+        ctx.shadowBlur = 0;
+
+
+        if (
+          fw.y <= fw.targetY
+        ) {
+
+          explode(
+            fw.x,
+            fw.y
+          );
+
+          fireworks.splice(
+            i,
+            1
+          );
+
+        }
 
       }
 
 
-      fireworks = [];
+      /*
+        Particles
+      */
 
-      particles = [];
+      for (
+        let i = particles.length - 1;
+        i >= 0;
+        i--
+      ) {
+
+        const p =
+          particles[i];
+
+        p.x += p.vx;
+
+        p.y += p.vy;
+
+        p.vy += p.gravity;
+
+        p.vx *= p.friction;
+
+        p.vy *= p.friction;
+
+        p.life -= 1;
 
 
-      document
-        .querySelectorAll(
-          ".cracker"
-        )
-        .forEach(
-          element =>
-            element.remove()
+        if (p.life <= 0) {
+
+          particles.splice(
+            i,
+            1
+          );
+
+          continue;
+        }
+
+
+        const alpha =
+          Math.max(
+            0,
+            p.life / p.maxLife
+          );
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+          p.x,
+          p.y,
+          p.size,
+          0,
+          Math.PI * 2
         );
 
+        ctx.fillStyle =
+          "rgba(255, 220, 70, " +
+          alpha +
+          ")";
 
-      submitBtn.disabled =
-        false;
+        ctx.shadowBlur =
+          10;
+
+        ctx.shadowColor =
+          "#ff7a00";
+
+        ctx.fill();
+
+        ctx.shadowBlur = 0;
+
+      }
 
 
-      submitBtn.textContent =
-        "🎁 Submit Diwali Gift Entry";
+      requestAnimationFrame(
+        animateFireworks
+      );
 
     }
-  );
 
 
-/* =====================================================
-   SET INSTAGRAM URL
-===================================================== */
+    function crackerBurst() {
 
-document
-  .querySelector(
-    ".instagram-btn"
-  )
-  .href =
-  INSTAGRAM_URL;
+      const cracker =
+        document.createElement("div");
 
-</script>
+      cracker.className =
+        "cracker";
+
+      const crackers = [
+        "🎇",
+        "🎆",
+        "🧨",
+        "✨",
+        "💥",
+        "🌟"
+      ];
+
+      cracker.textContent =
+        crackers[
+          Math.floor(
+            Math.random() *
+            crackers.length
+          )
+        ];
+
+      cracker.style.left =
+        random(5, 95) + "%";
+
+      cracker.style.bottom =
+        random(5, 25) + "%";
+
+      cracker.style.animationDuration =
+        random(1.6, 3.2) + "s";
+
+      celebration.appendChild(
+        cracker
+      );
+
+      setTimeout(function() {
+
+        cracker.remove();
+
+      }, 3500);
+
+    }
+
+
+    function launchCelebration() {
+
+      celebration.style.display =
+        "block";
+
+      resizeCanvas();
+
+      fireworks = [];
+      particles = [];
+
+      animationRunning = true;
+
+      /*
+        Start fireworks
+      */
+
+      for (
+        let i = 0;
+        i < 5;
+        i++
+      ) {
+
+        setTimeout(
+          createFirework,
+          i * 220
+        );
+
+      }
+
+
+      animateFireworks();
+
+
+      /*
+        Continuous fireworks
+      */
+
+      const fireworkInterval =
+        setInterval(function() {
+
+          if (
+            celebration.style.display ===
+            "none"
+          ) {
+
+            clearInterval(
+              fireworkInterval
+            );
+
+            return;
+          }
+
+          createFirework();
+
+        }, 650);
+
+
+      /*
+        Crackers
+      */
+
+      const crackerInterval =
+        setInterval(function() {
+
+          if (
+            celebration.style.display ===
+            "none"
+          ) {
+
+            clearInterval(
+              crackerInterval
+            );
+
+            return;
+          }
+
+          crackerBurst();
+
+        }, 280);
+
+    }
+
+
+    /* =========================================================
+       CLOSE CELEBRATION
+    ========================================================== */
+
+    closeCelebration.addEventListener(
+      "click",
+      function() {
+
+        celebration.style.display =
+          "none";
+
+        animationRunning = false;
+
+        fireworks = [];
+        particles = [];
+
+        ctx.clearRect(
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
