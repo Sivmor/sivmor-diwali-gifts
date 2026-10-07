@@ -111,27 +111,21 @@
     .fallback-banner .logo {
       font-size: 28px;
       font-weight: 900;
-
       letter-spacing: 2px;
-
       margin-bottom: 12px;
     }
 
 
     .fallback-banner .big {
       font-size: 25px;
-
       font-weight: 900;
-
       line-height: 1.15;
     }
 
 
     .fallback-banner .small {
       margin-top: 12px;
-
       font-size: 16px;
-
       font-weight: 700;
     }
 
@@ -142,15 +136,12 @@
 
     .intro {
       text-align: center;
-
-      padding:
-        18px 18px 8px;
+      padding: 18px 18px 8px;
     }
 
 
     .intro h1 {
-      margin:
-        0 0 8px;
+      margin: 0 0 8px;
 
       font-size: 26px;
 
@@ -172,7 +163,7 @@
 
 
     /* =====================================================
-       FORM CARD
+       FORM
     ====================================================== */
 
     .form-card {
@@ -192,20 +183,10 @@
 
       box-shadow:
         0 8px 35px
-        rgba(
-          0,
-          0,
-          0,
-          0.12
-        ),
+        rgba(0, 0, 0, 0.12),
 
         0 2px 8px
-        rgba(
-          0,
-          0,
-          0,
-          0.06
-        );
+        rgba(0, 0, 0, 0.06);
     }
 
 
@@ -259,8 +240,7 @@
     .field input:focus,
     .field textarea:focus {
 
-      border-color:
-        #0645B5;
+      border-color: #0645B5;
 
       box-shadow:
         0 0 0 3px
@@ -274,18 +254,14 @@
 
 
     .field textarea {
-
       min-height: 90px;
-
       resize: vertical;
     }
 
 
     .hint {
       margin-top: 5px;
-
       font-size: 12px;
-
       color: #777;
     }
 
@@ -328,8 +304,7 @@
 
       border-radius: 12px;
 
-      padding:
-        13px 10px;
+      padding: 13px 10px;
 
       font-size: 14px;
 
@@ -391,8 +366,7 @@
 
       border-radius: 10px;
 
-      padding:
-        9px 14px;
+      padding: 9px 14px;
 
       font-weight: 700;
 
@@ -426,8 +400,7 @@
 
       color: #ffffff;
 
-      background:
-        #0645B5;
+      background: #0645B5;
 
       box-shadow:
         0 7px 18px
@@ -449,8 +422,7 @@
 
     .submit-btn:hover {
 
-      background:
-        #053b9c;
+      background: #053b9c;
 
       box-shadow:
         0 9px 22px
@@ -469,9 +441,7 @@
 
 
     .submit-btn:disabled {
-
       opacity: 0.8;
-
       cursor: default;
     }
 
@@ -510,7 +480,7 @@
 
 
     /* =====================================================
-       PREMIUM CELEBRATION SCREEN
+       CELEBRATION SCREEN
     ====================================================== */
 
     #celebration {
@@ -561,7 +531,7 @@
 
 
     /* =====================================================
-       CONTENT
+       CELEBRATION CONTENT
     ====================================================== */
 
     .celebration-content {
@@ -582,16 +552,314 @@
 
       text-align: center;
 
-      padding:
-        18px;
+      padding: 18px;
 
       pointer-events: none;
     }
 
 
     /* =====================================================
+       SIDE DIYAS
+    ====================================================== */
+
+    .side-diyas {
+
+      position: absolute;
+
+      z-index: 8;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 34px;
+
+      pointer-events: none;
+
+    }
+
+
+    .side-diyas.left {
+
+      left: 20px;
+
+      bottom: 18%;
+
+      align-items: flex-start;
+
+    }
+
+
+    .side-diyas.right {
+
+      right: 20px;
+
+      bottom: 18%;
+
+      align-items: flex-end;
+
+    }
+
+
+    .side-diya {
+
+      position: relative;
+
+      width: 72px;
+
+      height: 52px;
+
+      opacity: 0;
+
+      transform:
+        translateY(25px)
+        scale(0.7);
+
+      animation:
+        sideDiyaEntrance
+        0.9s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        1.0s
+        forwards,
+
+        sideDiyaFloat
+        3.2s
+        ease-in-out
+        1.9s
+        infinite;
+    }
+
+
+    .side-diya::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 30px;
+
+      height: 34px;
+
+      left: 21px;
+
+      top: -24px;
+
+      border-radius:
+        50% 50% 48% 48%;
+
+      background:
+        radial-gradient(
+          ellipse at 50% 75%,
+          #fffcc7 0%,
+          #ffd44a 34%,
+          #ff9514 66%,
+          transparent 72%
+        );
+
+      filter:
+        blur(0.3px)
+        drop-shadow(
+          0 0 8px
+          rgba(
+            255,
+            190,
+            30,
+            0.9
+          )
+        );
+
+      transform-origin:
+        50% 85%;
+
+      animation:
+        flameDance
+        0.8s
+        ease-in-out
+        infinite
+        alternate;
+    }
+
+
+    .side-diya::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: 5px;
+
+      top: 7px;
+
+      width: 62px;
+
+      height: 30px;
+
+      border-radius:
+        50% 50% 45% 45%;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffbd35 0%,
+          #d56d0d 55%,
+          #8b3800 100%
+        );
+
+      border:
+        2px solid
+        rgba(
+          255,
+          213,
+          77,
+          0.9
+        );
+
+      box-shadow:
+
+        inset 0 4px 6px
+        rgba(
+          255,
+          240,
+          160,
+          0.55
+        ),
+
+        0 0 16px
+        rgba(
+          255,
+          166,
+          20,
+          0.6
+        );
+    }
+
+
+    @keyframes sideDiyaEntrance {
+
+      0% {
+
+        opacity: 0;
+
+        transform:
+          translateY(25px)
+          scale(0.7);
+      }
+
+      70% {
+
+        opacity: 1;
+
+        transform:
+          translateY(-3px)
+          scale(1.04);
+      }
+
+      100% {
+
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+    }
+
+
+    @keyframes sideDiyaFloat {
+
+      0%,
+      100% {
+
+        transform:
+          translateY(0)
+          rotate(-1deg);
+      }
+
+      50% {
+
+        transform:
+          translateY(-6px)
+          rotate(1deg);
+      }
+    }
+
+
+    @keyframes flameDance {
+
+      from {
+
+        transform:
+          scale(
+            0.9,
+            1
+          )
+          rotate(-3deg);
+      }
+
+      to {
+
+        transform:
+          scale(
+            1.05,
+            1.08
+          )
+          rotate(3deg);
+      }
+    }
+
+
+    /* =====================================================
+       EXTRA SMALL SIDE GLOW
+    ====================================================== */
+
+    .side-glow {
+
+      position: absolute;
+
+      width: 170px;
+
+      height: 170px;
+
+      border-radius: 50%;
+
+      filter: blur(30px);
+
+      background:
+        rgba(
+          255,
+          143,
+          0,
+          0.08
+        );
+
+      pointer-events: none;
+
+    }
+
+
+    .side-glow.left {
+
+      left: -90px;
+
+      bottom: 8%;
+    }
+
+
+    .side-glow.right {
+
+      right: -90px;
+
+      bottom: 8%;
+    }
+
+
+    /* =====================================================
        LOGO
-       SMALLER + NO WHITE SHINE
     ====================================================== */
 
     .celebration-logo-wrap {
@@ -622,11 +890,6 @@
         0.1s
         forwards;
 
-      /*
-        IMPORTANT:
-        No overflow beam/shine.
-      */
-
       border-radius: 20px;
     }
 
@@ -642,6 +905,7 @@
       border-radius: 20px;
 
       box-shadow:
+
         0 0 12px
         rgba(
           255,
@@ -675,9 +939,9 @@
     }
 
 
-    /*
-      NO ::after SHINE.
-      This removes the unwanted white diagonal line.
+    /* IMPORTANT:
+       No shine overlay.
+       No white diagonal line.
     */
 
 
@@ -735,144 +999,13 @@
 
 
     /* =====================================================
-       DIYA
-    ====================================================== */
-
-    .celebration-diya {
-
-      margin-top:
-        8px;
-
-      font-size:
-        clamp(
-          46px,
-          11vw,
-          64px
-        );
-
-      line-height: 1;
-
-      opacity: 0;
-
-      transform:
-        translateY(16px)
-        scale(0.75);
-
-      animation:
-        diyaSmoothIn
-        0.9s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        )
-        0.65s
-        forwards,
-
-        diyaGlow
-        2.4s
-        ease-in-out
-        1.6s
-        infinite
-        alternate;
-    }
-
-
-    @keyframes diyaSmoothIn {
-
-      0% {
-
-        opacity: 0;
-
-        transform:
-          translateY(16px)
-          scale(0.75);
-      }
-
-
-      70% {
-
-        opacity: 1;
-
-        transform:
-          translateY(-3px)
-          scale(1.05);
-      }
-
-
-      100% {
-
-        opacity: 1;
-
-        transform:
-          translateY(0)
-          scale(1);
-      }
-    }
-
-
-    @keyframes diyaGlow {
-
-      from {
-
-        filter:
-          drop-shadow(
-            0 0 6px
-            rgba(
-              255,
-              255,
-              255,
-              0.85
-            )
-          )
-
-          drop-shadow(
-            0 0 18px
-            rgba(
-              255,
-              157,
-              0,
-              0.55
-            )
-          );
-      }
-
-
-      to {
-
-        filter:
-          drop-shadow(
-            0 0 12px
-            rgba(
-              255,
-              255,
-              255,
-              1
-            )
-          )
-
-          drop-shadow(
-            0 0 32px
-            rgba(
-              255,
-              120,
-              0,
-              0.85
-            )
-          );
-      }
-    }
-
-
-    /* =====================================================
-       SIVMOR KI TARAF SE AAPKO
+       SIVMOR MESSAGE
     ====================================================== */
 
     .celebration-subtitle {
 
       margin-top:
-        10px;
+        22px;
 
       font-size:
         clamp(
@@ -894,6 +1027,7 @@
         translateY(15px);
 
       text-shadow:
+
         0 0 8px
         rgba(
           255,
@@ -919,7 +1053,7 @@
           0.36,
           1
         )
-        1.15s
+        0.9s
         forwards;
     }
 
@@ -946,7 +1080,7 @@
 
 
     /* =====================================================
-       HAPPY DIWALI TITLE
+       HAPPY DIWALI
     ====================================================== */
 
     .celebration-title {
@@ -966,9 +1100,11 @@
           76px
         );
 
-      font-weight: 900;
+      font-weight:
+        900;
 
-      line-height: 0.98;
+      line-height:
+        0.98;
 
       letter-spacing:
         -0.5px;
@@ -1001,6 +1137,7 @@
       color: transparent;
 
       text-shadow:
+
         0 0 5px
         rgba(
           255,
@@ -1034,7 +1171,7 @@
           0.36,
           1
         )
-        1.45s
+        1.2s
         forwards,
 
         titleShimmer
@@ -1096,7 +1233,7 @@
 
 
     /* =====================================================
-       MESSAGE
+       SUCCESS MESSAGE
     ====================================================== */
 
     .celebration-message {
@@ -1129,7 +1266,7 @@
         messageSmoothIn
         0.9s
         ease-out
-        2.15s
+        2.05s
         forwards;
     }
 
@@ -1156,7 +1293,7 @@
 
 
     /* =====================================================
-       INSTAGRAM BUTTON
+       INSTAGRAM
     ====================================================== */
 
     .celebration-follow {
@@ -1205,6 +1342,7 @@
         );
 
       box-shadow:
+
         0 0 15px
         rgba(
           255,
@@ -1236,13 +1374,13 @@
           0.36,
           1
         )
-        2.55s
+        2.4s
         forwards,
 
         instagramGlow
         2.5s
         ease-in-out
-        3.5s
+        3.4s
         infinite
         alternate;
     }
@@ -1286,6 +1424,7 @@
       from {
 
         box-shadow:
+
           0 0 12px
           rgba(
             255,
@@ -1307,6 +1446,7 @@
       to {
 
         box-shadow:
+
           0 0 24px
           rgba(
             255,
@@ -1396,7 +1536,7 @@
        MOBILE
     ====================================================== */
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
 
       .form-card {
 
@@ -1425,31 +1565,27 @@
       .celebration-content {
 
         padding:
-          14px;
+          12px;
       }
 
 
       .celebration-logo-wrap {
 
         width:
-          68vw;
+          63vw;
 
         max-width:
-          285px;
-      }
-
-
-      .celebration-diya {
-
-        margin-top:
-          7px;
+          270px;
       }
 
 
       .celebration-subtitle {
 
+        margin-top:
+          18px;
+
         font-size:
-          19px;
+          17px;
       }
 
 
@@ -1457,8 +1593,8 @@
 
         font-size:
           clamp(
-            38px,
-            12vw,
+            36px,
+            11vw,
             58px
           );
       }
@@ -1478,6 +1614,71 @@
 
         padding:
           11px 18px;
+      }
+
+
+      .side-diyas.left {
+
+        left:
+          -8px;
+
+        bottom:
+          12%;
+
+        gap:
+          24px;
+      }
+
+
+      .side-diyas.right {
+
+        right:
+          -8px;
+
+        bottom:
+          12%;
+
+        gap:
+          24px;
+      }
+
+
+      .side-diya {
+
+        width:
+          55px;
+
+        height:
+          44px;
+
+        transform:
+          scale(0.82);
+      }
+
+
+      .side-diya::after {
+
+        left:
+          4px;
+
+        width:
+          48px;
+
+        height:
+          25px;
+      }
+
+
+      .side-diya::before {
+
+        left:
+          16px;
+
+        width:
+          24px;
+
+        height:
+          29px;
       }
 
     }
@@ -1502,6 +1703,7 @@
     ==================================================== -->
 
     <div class="banner-wrapper">
+
 
       <img
         id="bannerImage"
@@ -1539,6 +1741,7 @@
 
     <div class="intro">
 
+
       <h1>
         SiVMOR DIWALI GIFT
       </h1>
@@ -1553,6 +1756,7 @@
         Spread joy, share happiness, & celebrate together
         with thoughtful Diwali gifts. ❤️ 🌟
       </p>
+
 
     </div>
 
@@ -1577,10 +1781,7 @@
           <label for="name">
 
             Name
-
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1604,10 +1805,7 @@
           <label for="mobile">
 
             Mobile No.
-
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1638,10 +1836,7 @@
           <label for="invoice">
 
             Invoice No.
-
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1659,25 +1854,20 @@
 
 
           <div class="hint">
-
             Numbers, alphabets and special characters are allowed.
-
           </div>
 
         </div>
 
 
-        <!-- MODEL NAME -->
+        <!-- MODEL -->
 
         <div class="field">
 
           <label for="modelName">
 
             Model Name
-
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1694,10 +1884,8 @@
 
 
           <div class="hint">
-
             Example:
             iPhone 15, Samsung A55, Redmi Note 13 Pro
-
           </div>
 
         </div>
@@ -1710,10 +1898,7 @@
           <label for="imei">
 
             IMEI / S.R NO
-
-            <span class="required">
-              *
-            </span>
+            <span class="required">*</span>
 
           </label>
 
@@ -1785,9 +1970,7 @@
                 class="photo-btn"
                 id="cameraButton"
               >
-
                 📸 Open Camera
-
               </button>
 
 
@@ -1796,9 +1979,7 @@
                 class="photo-btn"
                 id="galleryButton"
               >
-
                 🖼️ Gallery / File
-
               </button>
 
 
@@ -1825,6 +2006,7 @@
               class="preview-wrapper"
             >
 
+
               <img
                 id="photoPreview"
                 alt="Selected invoice photo"
@@ -1836,10 +2018,9 @@
                 id="removePhoto"
                 class="remove-photo"
               >
-
                 ❌ Remove Photo
-
               </button>
+
 
             </div>
 
@@ -1898,15 +2079,60 @@
     ></canvas>
 
 
+    <!-- LEFT DIYAS -->
+
+    <div
+      class="side-diyas left"
+    >
+
+      <div
+        class="side-diya"
+      ></div>
+
+      <div
+        class="side-diya"
+      ></div>
+
+    </div>
+
+
+    <!-- RIGHT DIYAS -->
+
+    <div
+      class="side-diyas right"
+    >
+
+      <div
+        class="side-diya"
+      ></div>
+
+      <div
+        class="side-diya"
+      ></div>
+
+    </div>
+
+
+    <!-- SOFT SIDE GLOW -->
+
+    <div
+      class="side-glow left"
+    ></div>
+
+
+    <div
+      class="side-glow right"
+    ></div>
+
+
+    <!-- MAIN CONTENT -->
+
     <div
       class="celebration-content"
     >
 
 
-      <!-- =================================================
-           SiVMOR LOGO
-           LOGO.jpg is in repository root
-      ================================================== -->
+      <!-- LOGO -->
 
       <div
         class="celebration-logo-wrap"
@@ -1921,23 +2147,12 @@
       </div>
 
 
-      <!-- DIYA -->
-
-      <div
-        class="celebration-diya"
-      >
-        🪔
-      </div>
-
-
-      <!-- "SIVMOR KI TARAF SE AAPKO" -->
+      <!-- SUBTITLE -->
 
       <div
         class="celebration-subtitle"
       >
-
         SIVMOR KI TARAF SE AAPKO
-
       </div>
 
 
@@ -1946,9 +2161,7 @@
       <div
         class="celebration-title"
       >
-
         HAPPY DIWALI!
-
       </div>
 
 
@@ -1998,7 +2211,6 @@
             "
           />
 
-
           <path
             d="
               M12 7a5 5 0 1 0 0 10
@@ -2007,7 +2219,6 @@
               3 3 0 0 1 0-6z
             "
           />
-
 
           <circle
             cx="17.5"
@@ -2023,20 +2234,17 @@
 
       </a>
 
+
     </div>
 
   </div>
 
 
-  <!-- =====================================================
-       JAVASCRIPT
-  ====================================================== -->
-
   <script>
 
 
     /* =====================================================
-       APPS SCRIPT URL
+       APPS SCRIPT
     ====================================================== */
 
     const APPS_SCRIPT_URL =
@@ -2150,7 +2358,7 @@
 
 
     /* =====================================================
-       BANNER FALLBACK
+       BANNER
     ====================================================== */
 
     const bannerImage =
@@ -2255,7 +2463,7 @@
 
 
     /* =====================================================
-       COMPRESS IMAGE
+       IMAGE COMPRESSION
     ====================================================== */
 
     function compressImage(
@@ -2432,6 +2640,7 @@
       file
     ) {
 
+
       let quality =
         0.78;
 
@@ -2487,6 +2696,7 @@
         1200 * 1024
       ) {
 
+
         blob =
           await compressImage(
             file,
@@ -2504,7 +2714,7 @@
 
 
     /* =====================================================
-       HANDLE PHOTO
+       PHOTO HANDLER
     ====================================================== */
 
     async function handlePhoto(
@@ -2524,9 +2734,11 @@
         )
       ) {
 
+
         alert(
           "Please select an image file."
         );
+
 
         return;
 
@@ -2732,11 +2944,14 @@
 
       if (!name) {
 
+
         alert(
           "Please enter Name."
         );
 
+
         nameInput.focus();
+
 
         return false;
 
@@ -2749,69 +2964,75 @@
         )
       ) {
 
+
         alert(
           "Mobile number exactly 10 digits ka hona chahiye."
         );
 
+
         mobileInput.focus();
+
 
         return false;
 
       }
 
 
-      /* Invoice = free text */
-
       if (!invoice) {
+
 
         alert(
           "Please enter Invoice No."
         );
 
+
         invoiceInput.focus();
+
 
         return false;
 
       }
 
 
-      /* Model */
-
       if (!modelName) {
+
 
         alert(
           "Please enter Model Name."
         );
 
+
         modelInput.focus();
+
 
         return false;
 
       }
 
 
-      /* IMEI */
-
       if (!imei) {
+
 
         alert(
           "Please enter IMEI / S.R NO."
         );
 
+
         imeiInput.focus();
+
 
         return false;
 
       }
 
 
-      /* Invoice Photo */
-
       if (!selectedPhotoData) {
+
 
         alert(
           "Please upload Invoice Photo."
         );
+
 
         return false;
 
@@ -2824,7 +3045,7 @@
 
 
     /* =====================================================
-       RESET FORM
+       RESET
     ====================================================== */
 
     function resetForm() {
@@ -2985,11 +3206,6 @@
         );
 
 
-        /*
-          Current Code.gs accepts
-          modelName and storeName.
-        */
-
         addField(
           "modelName",
           modelInput.value.trim()
@@ -3023,10 +3239,6 @@
         submitForm.submit();
 
 
-        /*
-          Smooth customer experience.
-        */
-
         setTimeout(
           function() {
 
@@ -3040,11 +3252,13 @@
             setTimeout(
               function() {
 
+
                 try {
 
                   submitForm.remove();
 
                 } catch (e) {}
+
 
               },
               5000
@@ -3060,7 +3274,7 @@
 
 
     /* =====================================================
-       FIREWORK SYSTEM
+       FIREWORKS
     ====================================================== */
 
     const canvas =
@@ -3089,6 +3303,7 @@
 
       canvas.width =
         window.innerWidth;
+
 
       canvas.height =
         window.innerHeight;
@@ -3243,7 +3458,7 @@
 
 
     /* =====================================================
-       ANIMATION LOOP
+       FIREWORK ANIMATION
     ====================================================== */
 
     function animateFireworks() {
@@ -3527,7 +3742,7 @@
 
 
     /* =====================================================
-       START CELEBRATION
+       LAUNCH CELEBRATION
     ====================================================== */
 
     function launchCelebration() {
@@ -3551,7 +3766,7 @@
 
 
       /*
-        Initial fireworks.
+        Initial fireworks
       */
 
       for (
@@ -3573,7 +3788,7 @@
 
 
       /*
-        Continuous fireworks.
+        Continuous fireworks
       */
 
       const fireworkInterval =
@@ -3599,13 +3814,14 @@
 
             createFirework();
 
+
           },
           650
         );
 
 
       /*
-        Crackers.
+        Continuous crackers
       */
 
       const crackerInterval =
@@ -3631,6 +3847,7 @@
 
             crackerBurst();
 
+
           },
           300
         );
@@ -3639,7 +3856,7 @@
 
 
     /* =====================================================
-       INITIAL CANVAS
+       INITIALIZE
     ====================================================== */
 
     resizeCanvas();
