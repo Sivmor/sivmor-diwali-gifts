@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SIVMOR • Happy Diwali</title>
+  <style>
+    :root{
+      --purple:#4b1f6f;
+      --purple2:#6f35a0;
+      --gold:#f6c453;
+      --cream:#fff8e8;
+      --text:#24152f;
+      --muted:#77677f;
+      --white:#fff;
+      --shadow:0 18px 55px rgba(55,20,75,.18);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 10% 5%,rgba(246,196,83,.28),transparent 26%),
+        radial-gradient(circle at 90% 10%,rgba(111,53,160,.20),transparent 30%),
+        linear-gradient(135deg,#fffaf1,#f7effd);
+    }
+    .wrap{width:min(720px,94%);margin:0 auto;padding:28px 0 50px}
+    .brand{
+      text-align:center;
+      margin-bottom:18px;
+    }
+    .brand .om{font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--purple2);font-weight:800}
+    .brand h1{margin:7px 0 3px;font-size:clamp(28px,7vw,48px);color:var(--purple)}
+    .brand p{margin:0;color:var(--muted)}
+    .card{
+      background:rgba(255,255,255,.93);
+      border:1px solid rgba(75,31,111,.09);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:24px;
+      backdrop-filter:blur(10px);
+    }
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .field{display:flex;flex-direction:column;gap:7px}
+    .field.full{grid-column:1/-1}
+    label{font-weight:750;font-size:14px}
+    input{
+      width:100%;
+      border:1.5px solid #e1d7e7;
+      background:#fff;
+      border-radius:14px;
+      padding:13px 14px;
+      font-size:16px;
+      outline:none;
+      transition:.2s;
+    }
+    input:focus{border-color:var(--purple2);box-shadow:0 0 0 4px rgba(111,53,160,.10)}
+    .hint{font-size:12px;color:var(--muted)}
+    .photo-box{
+      border:1.5px dashed #cbb9d6;
+      border-radius:18px;
+      padding:15px;
+      background:#fcf9ff;
+    }
+    .photo-actions{display:flex;gap:10px;flex-wrap:wrap}
+    button{
+      border:0;border-radius:14px;padding:13px 17px;
+      font-size:15px;font-weight:800;cursor:pointer;
+      transition:transform .15s,box-shadow .15s,opacity .15s;
+    }
+    button:hover{transform:translateY(-1px)}
+    button:disabled{opacity:.55;cursor:not-allowed;transform:none}
+    .primary{background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;box-shadow:0 10px 25px rgba(75,31,111,.22)}
+    .gold{background:linear-gradient(135deg,#f6c453,#e9a82d);color:#3c2600}
+    .ghost{background:#fff;border:1px solid #ddcfe5;color:var(--purple)}
+    .submit{width:100%;margin-top:20px;font-size:17px;padding:15px}
+    .preview{display:none;margin-top:14px;position:relative}
+    .preview img{width:100%;max-height:280px;object-fit:cover;border-radius:16px;border:1px solid #e4d9ea}
+    .file-name{margin-top:7px;font-size:12px;color:var(--muted);word-break:break-word}
+    .camera-modal{
+      position:fixed;inset:0;background:rgba(22,8,31,.82);z-index:20;
+      display:none;align-items:center;justify-content:center;padding:18px;
+    }
+    .camera-card{width:min(600px,100%);background:#fff;border-radius:24px;padding:16px}
+    video{width:100%;border-radius:18px;background:#111;aspect-ratio:4/3;object-fit:cover}
+    .camera-controls{display:flex;gap:10px;margin-top:12px}
+    .camera-controls button{flex:1}
+    #fileInput,#cameraInput{display:none}
+    .success{
+      position:fixed;inset:0;z-index:30;display:none;overflow:hidden;
+      background:linear-gradient(135deg,#2b0c4a,#6f35a0 55%,#f0ad2f);
+      color:#fff;align-items:center;justify-content:center;text-align:center;padding:25px;
+    }
+    .success.show{display:flex;animation:fadeIn .45s ease}
+    .success-card{position:relative;z-index:3;width:min(650px,100%)}
+    .diya{font-size:70px;filter:drop-shadow(0 0 18px rgba(255,210,95,.7));animation:float 2s ease-in-out infinite}
+    .success h2{font-size:clamp(36px,9vw,68px);margin:8px 0 0;line-height:1.02}
+    .success p{font-size:18px;opacity:.95}
+    .follow{display:inline-block;text-decoration:none;margin-top:15px}
+    .spark{position:absolute;width:7px;height:7px;border-radius:50%;background:#ffd76b;animation:spark 2.4s linear infinite}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes float{50%{transform:translateY(-10px) scale(1.04)}}
+    @keyframes spark{from{transform:translateY(100vh) scale(.2);opacity:0}20%{opacity:1}to{transform:translateY(-20vh) scale(1);opacity:0}}
+    .error{display:none;color:#b42318;font-size:13px;margin-top:12px;font-weight:700}
+    .busy{display:none;text-align:center;color:var(--purple);font-weight:700;margin-top:10px}
+    @media(max-width:620px){.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.card{padding:18px}.photo-actions button{width:100%}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">
+      <div class="om">SIVMOR</div>
+      <h1>Customer Response</h1>
+      <p>Fill in your details & submit</p>
+    </div>
+
+    <div class="card">
+      <form id="customerForm">
+        <div class="grid">
+          <div class="field full">
+            <label for="name">Name *</label>
+            <input id="name" name="name" type="text" maxlength="100" autocomplete="name" required placeholder="Enter your name">
+          </div>
+
+          <div class="field">
+            <label for="mobile">Mobile No. *</label>
+            <input id="mobile" name="mobile" type="tel" inputmode="numeric" maxlength="10"
+                   pattern="[0-9]{10}" required placeholder="10 digit mobile number">
+            <div class="hint">Exactly 10 digits only</div>
+          </div>
+
+          <div class="field">
+            <label for="invoice">Invoice No. *</label>
+            <input id="invoice" name="invoice" type="text" inputmode="numeric" maxlength="4"
+                   pattern="[1-9][0-9]{0,3}" required placeholder="1–9999">
+            <div class="hint">Maximum 9999</div>
+          </div>
+
+          <div class="field full">
+            <label for="storeName">Store Name *</label>
+            <input id="storeName" name="storeName" type="text" maxlength="150" required placeholder="Enter store name">
+          </div>
+
+          <div class="field full">
+            <label for="imei">IMEI/S.R NO *</label>
+            <input id="imei" name="imei" type="text" maxlength="100" required placeholder="Enter IMEI / Serial No.">
+            <div class="hint">Any text/number is allowed here.</div>
+          </div>
+
+          <div class="field full">
+            <label>Photo *</label>
+            <div class="photo-box">
+              <div class="photo-actions">
+                <button type="button" class="primary" id="openCamera">📷 Live Camera</button>
+                <button type="button" class="ghost" id="chooseFile">🖼️ Upload / Gallery</button>
+              </div>
+              <input id="cameraInput" type="file" accept="image/*" capture="environment">
+              <input id="fileInput" type="file" accept="image/*">
+              <div id="preview" class="preview">
+                <img id="previewImg" alt="Selected photo preview">
+                <div id="fileName" class="file-name"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="error" class="error"></div>
+        <div id="busy" class="busy">Submitting your details… please wait.</div>
+        <button id="submitBtn" class="gold submit" type="submit">✨ Submit Details</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Hidden POST target: avoids CORS problems with the Apps Script endpoint. -->
+  <iframe name="submitFrame" id="submitFrame" style="display:none"></iframe>
+
+  <div class="camera-modal" id="cameraModal">
+    <div class="camera-card">
+      <video id="video" autoplay playsinline muted></video>
+      <div class="camera-controls">
+        <button type="button" class="ghost" id="closeCamera">Close</button>
+        <button type="button" class="primary" id="takePhoto">📸 Take Photo</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="success" id="success">
+    <div id="sparks"></div>
+    <div class="success-card">
+      <div class="diya">🪔</div>
+      <h2>Happy Diwali!</h2>
+      <p>✨ SIVMOR ki taraf se aapko aur aapke parivaar ko Deepawali ki hardik shubhkamnayein ✨</p>
+      <p>Your details have been submitted successfully.</p>
+      <a class="gold follow" id="followBtn" href="https://www.instagram.com/" target="_blank" rel="noopener">❤️ Follow Us</a>
+    </div>
+  </div>
+
+  <script>
+    // 1) Paste your deployed Apps Script /exec URL here.
+    const APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+    const form = document.getElementById('customerForm');
+    const mobile = document.getElementById('mobile');
+    const invoice = document.getElementById('invoice');
+    const errorBox = document.getElementById('error');
+    const busy = document.getElementById('busy');
+    const submitBtn = document.getElementById('submitBtn');
+
+    const cameraModal = document.getElementById('cameraModal');
+    const video = document.getElementById('video');
+    let cameraStream = null;
+    let selectedPhotoDataUrl = '';
+    let selectedPhotoName = '';
+
+    // Hard input restrictions.
+    mobile.addEventListener('input', () => {
+      mobile.value = mobile.value.replace(/\D/g, '').slice(0, 10);
+    });
+
+    invoice.addEventListener('input', () => {
+      invoice.value = invoice.value.replace(/\D/g, '').slice(0, 4);
+    });
+
+    document.getElementById('chooseFile').onclick = () => {
+      document.getElementById('fileInput').click();
+    };
+
+    document.getElementById('cameraInput').addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) setPhoto(e.target.files[0]);
+    });
+
+    document.getElementById('fileInput').addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) setPhoto(e.target.files[0]);
+    });
+
+    function setPhoto(file) {
+      if (!file.type.startsWith('image/')) {
+        showError('Please select an image file only.');
+        return;
+      }
+      selectedPhotoName = file.name || 'customer-photo.jpg';
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        // Resize/compress before sending so the request stays lightweight.
+        compressImage(reader.result, 1280, 0.78).then(dataUrl => {
+          selectedPhotoDataUrl = dataUrl;
+          document.getElementById('previewImg').src = dataUrl;
+          document.getElementById('fileName').textContent = selectedPhotoName;
+          document.getElementById('preview').style.display = 'block';
+          clearError();
+        }).catch(() => showError('Could not process the selected photo.'));
+      };
+      reader.readAsDataURL(file);
+    }
+
+    async function compressImage(dataUrl, maxSize, quality) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          let w = img.width, h = img.height;
+          const scale = Math.min(1, maxSize / Math.max(w, h));
+          w = Math.round(w * scale);
+          h = Math.round(h * scale);
+
+          const canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          resolve(canvas.toDataURL('image/jpeg', quality));
+        };
+        img.onerror = reject;
+        img.src = dataUrl;
+      });
+    }
+
+    // Inline live camera.
+    document.getElementById('openCamera').onclick = async () => {
+      clearError();
+      try {
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          // Fallback to mobile camera/file picker.
+          document.getElementById('cameraInput').click();
+          return;
+        }
+        cameraStream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: 'environment' }, width: { ideal: 1280 }, height: { ideal: 720 } },
+          audio: false
+        });
+        video.srcObject = cameraStream;
+        cameraModal.style.display = 'flex';
+      } catch (err) {
+        // Camera permission can be denied; fall back to native camera picker.
+        document.getElementById('cameraInput').click();
+      }
+    };
+
+    document.getElementById('takePhoto').onclick = async () => {
+      if (!cameraStream) return;
+
+      const canvas = document.createElement('canvas');
+      const w = video.videoWidth || 1280;
+      const h = video.videoHeight || 720;
+      const scale = Math.min(1, 1280 / Math.max(w, h));
+      canvas.width = Math.round(w * scale);
+      canvas.height = Math.round(h * scale);
+
+      canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+      selectedPhotoDataUrl = canvas.toDataURL('image/jpeg', 0.78);
+      selectedPhotoName = 'camera-photo.jpg';
+
+      document.getElementById('previewImg').src = selectedPhotoDataUrl;
+      document.getElementById('fileName').textContent = 'Camera photo';
+      document.getElementById('preview').style.display = 'block';
+
+      stopCamera();
+      clearError();
+    };
+
+    document.getElementById('closeCamera').onclick = stopCamera;
+
+    function stopCamera() {
+      if (cameraStream) {
+        cameraStream.getTracks().forEach(track => track.stop());
+        cameraStream = null;
+      }
+      video.srcObject = null;
+      cameraModal.style.display = 'none';
+    }
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.style.display = 'block';
+    }
+    function clearError() {
+      errorBox.textContent = '';
+      errorBox.style.display = 'none';
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      clearError();
+
+      if (APPS_SCRIPT_URL.includes('PASTE_')) {
+        showError('Apps Script URL is not configured yet.');
+        return;
+      }
+
+      if (!/^\d{10}$/.test(mobile.value)) {
+        showError('Mobile No. must be exactly 10 digits.');
+        mobile.focus();
+        return;
+      }
+
+      const inv = Number(invoice.value);
+      if (!/^[1-9]\d{0,3}$/.test(invoice.value) || inv > 9999) {
+        showError('Invoice No. must be between 1 and 9999.');
+        invoice.focus();
+        return;
+      }
+
+      if (!selectedPhotoDataUrl) {
+        showError('Please take a photo or upload a photo.');
+        return;
+      }
+
+      // Add a hidden payload and submit normally to the Apps Script iframe.
+      let payload = document.getElementById('photoData');
+      if (!payload) {
+        payload = document.createElement('input');
+        payload.type = 'hidden';
+        payload.name = 'photoData';
+        payload.id = 'photoData';
+        form.appendChild(payload);
+      }
+      payload.value = selectedPhotoDataUrl;
+
+      let pName = document.getElementById('photoName');
+      if (!pName) {
+        pName = document.createElement('input');
+        pName.type = 'hidden';
+        pName.name = 'photoName';
+        pName.id = 'photoName';
+        form.appendChild(pName);
+      }
+      pName.value = selectedPhotoName || 'customer-photo.jpg';
+
+      form.action = APPS_SCRIPT_URL;
+      form.method = 'POST';
+      form.target = 'submitFrame';
+
+      busy.style.display = 'block';
+      submitBtn.disabled = true;
+
+      form.submit();
+    });
+
+    // Apps Script response posts the actual success/failure back to this page.
+    window.addEventListener('message', (event) => {
+      const data = event.data || {};
+      if (data.type !== 'SIVMOR_FORM_RESULT') return;
+
+      busy.style.display = 'none';
+      submitBtn.disabled = false;
+
+      if (data.status === 'SUCCESS') {
+        showCelebration();
+        form.reset();
+        selectedPhotoDataUrl = '';
+        selectedPhotoName = '';
+        document.getElementById('preview').style.display = 'none';
+      } else {
+        showError(data.message || 'Submission failed. Please try again.');
+      }
+    });
+
+    function showCelebration() {
+      const success = document.getElementById('success');
+      const sparks = document.getElementById('sparks');
+      sparks.innerHTML = '';
+
+      for (let i = 0; i < 55; i++) {
+        const s = document.createElement('span');
+        s.className = 'spark';
+        s.style.left = Math.random() * 100 + '%';
+        s.style.animationDelay = (Math.random() * 2.5) + 's';
+        s.style.animationDuration = (1.8 + Math.random() * 2.5) + 's';
+        sparks.appendChild(s);
+      }
+      success.classList.add('show');
+    }
+
+    // Replace this with SIVMOR's real Instagram URL.
+    document.getElementById('followBtn').href = 'https://www.instagram.com/';
+  </script>
+</body>
+</html>
